@@ -12,22 +12,37 @@ h1 {
     float: center;
   padding : 20px;
       }
+<<<<<<< HEAD
       div.g {
     float: right;
       }
+=======
+    /*  div.g {
+    float: right;
+      }*/
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
     
         div.d {
           position: absolute;
           left :0%;
           width: 188px;
+<<<<<<< HEAD
           height: 700px;
+=======
+          height: 450px;
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
           border : 3px solid black;
         }
         div.a {
             position: relative;
             left : 187px;
+<<<<<<< HEAD
             width: 1219px;
             height: 700px;
+=======
+            width: 1000px;
+            height: 450px;
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
             border: 3px solid black;
             
         }

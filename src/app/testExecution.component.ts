@@ -1,5 +1,6 @@
 
 
+<<<<<<< HEAD
 import { Component, OnInit} from '@angular/core';
 
 
@@ -41,3 +42,30 @@ export class TestExecutionComponent implements OnInit  {
 
 }
 
+=======
+import { Component} from '@angular/core';
+
+
+@Component({
+  selector: 'app-test',
+ 
+  templateUrl:'./html/testExecution.html',
+    styleUrls:['./css/testExecution.css']        
+           
+ 
+
+         })//componrnt  closing
+
+export class TestExecutionComponent  {
+  
+   
+    constructor(){
+
+    }
+
+ 
+
+      
+
+}
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf

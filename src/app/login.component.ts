@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
            this.getData.getLoginDetails().subscribe(allData => this.loginUserDetails=allData);
       
-           this.checkLoginDetails()
+          // this.checkLoginDetails()
 
 
 
@@ -38,6 +38,10 @@ export class LoginComponent implements OnInit {
        }
 
             checkLoginDetails(){
+                 if(this.userNameDetails==undefined || this.passwordDetails==undefined){
+               alert("Please Fill Mandetatory Fields")
+
+             }
       
                if( this.userNameDetails ==this.loginUserDetails[0].userName &&this.passwordDetails==this.loginUserDetails[0].password){
                 
@@ -45,8 +49,22 @@ export class LoginComponent implements OnInit {
 
                }
                  else{
+                   this.userNameDetails="";
+                   this.passwordDetails="";
+                   alert("Invalid Password")
                    
                  }
+
+           }
+           clearData(){
+             //alert("ll")
+             //alert(this.loginUserDetails.length)
+             if(this.userNameDetails==undefined || this.passwordDetails==undefined){
+               alert("Please Fill Mandetatory Fields")
+
+             }
+             this.userNameDetails="";
+                   this.passwordDetails="";
 
            }
 

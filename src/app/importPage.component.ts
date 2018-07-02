@@ -1,5 +1,14 @@
 import { Component,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
+=======
+import { Http,Response } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { URLSearchParams } from '@angular/http';
+
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
 import{ImportServiceComponent} from './importPage.service';
 import {ProjectDetailServiceComponent} from './pDetail.service';
 
@@ -29,8 +38,19 @@ export class ImportComponent implements OnInit   {
    priorities:Post[];
   features:Post[];
   modules=[];
+<<<<<<< HEAD
 
    constructor(private importService:ImportServiceComponent,private router: Router,private data:ProjectDetailServiceComponent){
+=======
+  allData:any;
+  moduleSelected:string;
+featureSelected:string;
+typeSelected:string;
+prioritySelected:string;
+timeGiven:string;
+   constructor(private importService:ImportServiceComponent,private router: Router,
+     private data:ProjectDetailServiceComponent,private http:Http){
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
 	//alert("jjjjjjjjjjjj")
 
    }
@@ -63,19 +83,27 @@ console.log(this.types)
 
       }
 
+saveImportData(){
+  
+  this.allData=this.moduleSelected+","+this.featureSelected+","+this.typeSelected+","
+  +this.prioritySelected+","+this.timeGiven;
+   //console.log( this.allData)
+   //this.importService.importSaveDetails(this.allData)
 
-          // typeData(){
+let urlSearchParams = new URLSearchParams();
+urlSearchParams.append('moduleName',this.moduleSelected);
+urlSearchParams.append('featureName',this.featureSelected);
+urlSearchParams.append('typeName',this.typeSelected);
+urlSearchParams.append('priority',this.prioritySelected);
+urlSearchParams.append('time',this.timeGiven);
 
-          //   // sessionStorage.setItem('key',this.selectedDropdown);
-          //   //  this.router.navigate(['/projectDetail']);
+    return this.http.post('/savingImportData', urlSearchParams)
+      .subscribe(data => {
+      console.log(data);
+    });
 
-          // }
-          //     priorityData(){
-
-          //   // sessionStorage.setItem('key',this.selectedDropdown);
-          //   //  this.router.navigate(['/projectDetail']);
-
-          // }
+}
+      
  
 
   

@@ -16,9 +16,18 @@
 <div>
         <h1>UserName </h1> <input type="text" placeholder="Enter UserName" [(ngModel)]="userNameDetails" required>
         <br><br>
+<<<<<<< HEAD
         <h1>Password</h1>  <input type="text" placeholder="Enter Password" [(ngModel)]="passwordDetails"  required>
         <br><br>
         <button class="button1" (click)="checkLoginDetails()"  ><h1>Login</h1></button>
         <button class="button2" ><h1>Cancel</h1></button>
         <router-outlet></router-outlet>
 </div>
+=======
+        <h1>Password</h1>  <input type="password" placeholder="Enter Password" [(ngModel)]="passwordDetails"  required>
+        <br><br>
+        <button class="button1" (click)="checkLoginDetails()"  ><h1>Login</h1></button>
+        <button class="button2" (click)="clearData()" ><h1>Cancel</h1></button>
+        <router-outlet></router-outlet>
+</div>
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf

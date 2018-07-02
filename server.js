@@ -68,13 +68,55 @@ app.get('/importPriority',function(req,res){
         // console.log("mm"+doc)
     })
 })
+<<<<<<< HEAD
+=======
+// app.get('/idIncrement',function(req,res){
+     
+//   console.log("kkkkkkkkkkkkkkkk")
+//     db.dataIds.find({},function(err,doc){        
+//         res.json(doc);
+//         console.log(doc)
+//     })
+// })
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
 app.get('/getModuleName',function(req,res){
      
      
   
     db.moduleName.find({},function(err,doc){        
         res.json(doc);
+<<<<<<< HEAD
         //console.log(doc)
+=======
+        console.log(doc)
+    })
+    // db.moduleName.find({}).sort({_id:-1}).limit(1,function(err,doc)
+    // {
+    //     res.json(doc);
+    //     //console.log(doc);
+    // })
+})
+app.get('/idModule',function(req,res){
+     
+     
+  
+ 
+    db.moduleName.find({}).sort({_id:-1}).limit(1,function(err,doc)
+    {
+        res.json(doc);
+        console.log(doc);
+    })
+})
+app.get('/idFeature',function(req,res){
+     
+     
+  
+ 
+    db.featureName.find({}).sort({_id:-1}).limit(1,function(err,doc)
+    {
+        res.json(doc);
+        //console.log(doc);
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
     })
 })
 app.get('/featureName',function(req,res){
@@ -86,12 +128,52 @@ app.get('/featureName',function(req,res){
         //console.log(doc)
     })
 })
+<<<<<<< HEAD
 app.get('/getFeatureName:ss',function(req,res){
      console.log("llllllllllllllllll")
      var moduleName1=req.params.ss
      moduleName1 = parseInt(moduleName1);
   console.log(moduleName1+"llllllllllllllllll")
     db.featureName.find({"moduleId":moduleName1},function(err,doc){        
+=======
+// app.get('/getMoId:mI',function(req,res){
+//      console.log("llllllllllllllllll")
+//      var moduleName=req.params.mI
+//      //moduleName1 = parseInt(moduleName1);
+//   //console.log(moduleName1+"llllllllllllllllll")
+//     db.moduleName.find({"moduleName":moduleName},function(err,doc){        
+//         res.json(doc);
+//         console.log(doc)
+//     })
+// })
+app.get('/getMoId:mI',function(req,res){
+  console.log("mmmmmmmmmmmmmmmmmm")
+   var moduleName=req.params.mI
+  db.moduleName.aggregate([
+{$match:{"moduleName":moduleName}},
+
+
+
+{"$lookup":
+    {"from":"featureName",
+      "localField":"moduleId",
+        "foreignField":"moduleId",
+         "as":"unitedFM"
+     }
+ }
+],function(err,doc){
+  res.json(doc);
+  console.log(doc)
+})
+
+})
+app.get('/mId:mN',function(req,res){
+     console.log("llllllllllllllllll")
+     var moduleName=req.params.mN
+     //moduleName1 = parseInt(moduleName1);
+  console.log(moduleName+"llllllllllllllllll")
+    db.moduleName.find({"moduleName":moduleName},function(err,doc){        
+>>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
         res.json(doc);
         console.log(doc)
     })
@@ -101,18 +183,23 @@ app.post('/postModuleName',function(req,res)
    //var moduleName=req.params.moduleName;
    
     //var moduleName = str_array[1];
-//console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
+console.log(req.body.moduleName)
+
 
     db.moduleName.insert(req.body ,function(err,doc)
         {
         res.json(doc);
-        //console.log(doc)
+        console.log(doc)
+        //console.log(doc+1)
+       // console.log(" id in sale invoicw "+doc._id+" amount "+doc.moduleId)
+        
        });
 
 
 })
 app.post('/postFeatureName',function(req,res)
 {
+
    //var moduleName=req.params.moduleName;
    
     //var moduleName = str_array[1];
@@ -126,7 +213,24 @@ app.post('/postFeatureName',function(req,res)
 
 
 })
+app.post('/savingImportData',function(req,res) {
+   console.log("data data data data data data data data");
+  //  var datastr=req.params.datareceipt;
+ 
+  //  var datastr_array=datastr.split(",");
+  // var pname=datastr_array[0];
+  // // var tran=datastr_array[1];
+  // // var vNo=datastr_array[2];
+  // console.log(pname)
+//console.log("oooooooooooooooooo")
+//console.log(req.body)
+  db.importScript.insert(req.body,function(err,doc){
+//console.log("5gggggggggggggggggggggggg")
+        res.json(doc);
+        console.log(doc);
+      })
 
+})
 app.get('*',(req, res)=> {
 
   res.sendFile(path.join(__dirname,'dist/index.html'));

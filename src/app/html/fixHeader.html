@@ -1,0 +1,121 @@
+<div>
+
+
+
+ <!--     <div class ="g" >
+{{"Admin"}}
+    
+          <button type="button" style="background-color:blue;" [routerLink]="['/']">Sign Out</button>
+      <router-outlet></router-outlet>
+      </div> -->
+ <br>
+ <br>
+ <br>
+ 
+     <h1 > Project Detail </h1>
+ 
+<h3> ProjectName:{{projectName}} </h3>
+  
+
+
+<div class = "d">   
+  <p>    <b>  Modules  </b></p>
+  
+         
+    <div >
+    <ul  *ngFor="let module of moduleName ; let i = index" >
+    
+  <li    (click)="manualtoggle(module.moduleName,i)"  class="glyphicon glyphicon-folder-open" >{{module.moduleName}}
+          
+
+<br><br>
+               
+                  <ul *ngIf="i===ind">
+                <li  *ngFor="let indexvalu of indexvalue" class="glyphicon glyphicon-file">
+         
+                  {{indexvalu.featureName}}  
+                        
+       <br>              
+                </li>
+              </ul>
+
+
+
+
+</li>
+</ul>
+</div>
+</div>
+  
+ 
+  
+<div class="a" >
+    <table style="height: 444px">
+        <tr style="position: absolute;" >
+          <th (click)="changeShowStatus()" class="active" style="width: 2000px;text-align: center;" [style.background-color] = "show==true ? 'green' : 'cyan'"> Test Planning</th>
+
+        
+        <th style="width: 1828px;text-align: center;" (click)="showTestExecution()" class="active" [style.background-color] = "testExecution==true ? 'green' : 'cyan'" >Test Execution</th>
+
+
+       <th style="text-align: center;">Report</th>
+        </tr>
+        <td *ngIf="show==true" >
+          <div style="margin-top: -190px;position: absolute;">
+            <table style="width: 994px;">
+              <th (click)="goCreateModule()" style="text-align: center">CreateModule</th>
+              
+  
+              <th (click)="goCreateFeature()" style="text-align: center">CreateFeature</th>
+              
+  
+              <th (click)="goImport()" style="text-align: center">ImportScript</th>
+              
+            </table>
+            <app-module *ngIf="displayModule==true"></app-module>
+        <app-feature *ngIf="displayFeature==true"></app-feature>
+        <app-import *ngIf="displayImport==true"></app-import>
+          </div>
+        </td>
+        
+        
+        
+        <div style="width: 1px;height: 444px">
+        <tr style="height: 500px">
+<!--       
+    <td *ngIf="show==true" >
+      <button (click)="goCreateModule()" class="button button1" style="margin-left: 100px">CreateModule</button>
+  <app-module *ngIf="displayModule==true"></app-module>
+    
+<! <br>
+<br>
+<app-module></app-module> -->
+     <!-- </td> -->
+
+
+    <!-- <td *ngIf="show==true"><button (click)="goCreateFeature()" class="button button2" style="margin-left: 100px">CreateFeature</button>
+<app-feature *ngIf="displayFeature==true"></app-feature>
+
+
+    </td>
+
+     <td *ngIf="show==true"><button (click)="goImport()" class="button button3" style="margin-left: 100px">ImportScript</button>
+<app-import *ngIf="displayImport==true"></app-import>
+     </td>
+     <td *ngIf="show==true"> <button style="background-color:green;margin-left: 100px;padding: 5px;width: 80px">save </button></td> --> 
+     
+<td *ngIf="testExecution==true" style="width: 783px;"><app-test></app-test></td>
+</tr>
+
+
+  <!-- <tr> -->
+    <!--  <td> </td>
+     <td> </td> -->
+    <!--  <td>  <br><br> <br><br><br><button style="background-color:green;">save </button></td>
+    </tr> -->
+  </div>
+      </table>
+     
+</div>
+  <router-outlet></router-outlet>  
+</div>
