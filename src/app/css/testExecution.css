@@ -1,0 +1,32 @@
+.div1 {
+    margin-left: 160px;
+    width: 700px;
+}
+
+select {
+    width: 150px;
+}
+
+.span1 {
+    margin-left: 40px;
+}
+
+.span2 {
+    margin-left: 43px;
+}
+
+button {
+    padding: 10px;
+    width: 110px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 50px;
+    width: 600px;
+}
+th, td {
+    padding: 5px;
+    text-align: center;       
+}

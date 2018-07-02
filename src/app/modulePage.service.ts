@@ -15,20 +15,25 @@ export class ModuleServiceComponent {
  constructor(public http:Http){
 
  }
-   moduleServiceDetails(moduleName){
+//    moduleServiceDetails(moduleName){
 
-  let urlSearchParams = new URLSearchParams();
-urlSearchParams.append('moduleName', moduleName);
+//   let urlSearchParams = new URLSearchParams();
+// urlSearchParams.append('moduleName', moduleName);
 
 
-
- 	//alert(urlSearchParams+"yy")
- 	//console.log(urlSearchParams)
-    return this.http.post('/postModuleName', urlSearchParams)
-      .subscribe(data => {
-      console.log(data);
-    });
+//     return this.http.post('/postModuleName', urlSearchParams)
+//       .subscribe(data => {
+//       console.log(data);
+//     });
  
 
+//   }
+
+ idDetails():Observable<Post[]>{
+ 	//alert("ll00")
+   return this.http.get("/idModule")
+  .map((response:Response)=><Post[]>response.json());
+
   }
+
 }

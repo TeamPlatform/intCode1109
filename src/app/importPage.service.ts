@@ -24,4 +24,26 @@ export class ImportServiceComponent {
   .map((response:Response)=><Post[]>response.json());
 
   }
+     featureDetails():Observable<Post[]>{
+
+  
+    return this.http.get('/featureName')
+    .map((response:Response)=><Post[]>response.json());
+ 
+
+  }
+
+//  importSaveDetails(dataImportScript){
+// console.log(dataImportScript)
+// //   let urlSearch= new URLSearchParams();
+// // urlSearch.append('moduleName', dataImportScript);
+// //urlSearch.append('featureName', dataImportScript);
+//     return this.http.post('/savingImportData',dataImportScript)
+//       .subscribe(data => {
+//       console.log(data);
+//     });
+ 
+
+//   }
+
 }
