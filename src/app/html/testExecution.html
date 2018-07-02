@@ -1,0 +1,106 @@
+<style type="text/css">
+
+.div1 {
+    margin-left: 111px;
+    width: 700px;
+}
+
+select {
+    width: 150px;
+}
+
+.span1 {
+    margin-left: 40px;
+}
+
+.span2 {
+    margin-left: 43px;
+}
+
+button {
+    padding: 10px;
+    width: 110px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 50px;
+    width: 600px;
+}
+th, td {
+    padding: 5px;
+    text-align: center;       
+}
+</style>
+
+<body style="background-color: cyan; margin-left: 230px;height: 120px;font-size: 20px;">
+  
+    <div class="div1">
+        <span>
+            Module :
+            <select style="width: 200px;height: 30px">
+                <option *ngFor = "let var_moduleName of moduleNames">{{var_moduleName.moduleName}}</option>
+                
+            </select>
+        </span>
+        <span class="span1">
+            Feature :
+            <select style="width: 200px;height: 30px" >
+                 <option *ngFor = "let var2_featureName of featureNames">{{var2_featureName.featureName}}</option>
+                
+            </select>
+        </span>        
+    </div>
+
+    <br><br>
+
+    <div style="margin-left: 1px;">
+            <span style="margin-left: 130px">
+                Type : 
+                <select style="width: 200px;height: 30px;margin-left: 5px">
+                    <option *ngFor = "let var3_type of typeArray">{{var3_type.typeScenario}}</option>
+                    
+                </select>
+            </span>
+            <span class="span2" >
+                Priority :
+                <select style="width: 200px;height: 30px">
+                   <option *ngFor = "let var4_Priority of priorityArray">{{var4_Priority.priorityScenario}}</option>
+                   
+                </select>               
+            </span>
+    </div>
+
+    <br>
+
+    <button style="margin-left: 410px;margin-top: 10px">Search</button>
+
+    <br><br>
+
+    <table style="width: 670px;height: 188px;margin-left: 120px">
+        
+        <thead>
+          <th>SNo.</th>
+          <th>Module</th>
+          <th>Feature</th>
+          <th>Type</th>
+          <th>Priority</th>
+        </thead>
+        <tr>
+          <td>1</td>
+          <td>NgModule</td>
+          <td>AppComponent</td>
+          <td>Login</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+  
+</body>

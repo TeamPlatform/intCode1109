@@ -1,18 +1,46 @@
-<div>
-  Type:<select    >
-      <option *ngFor="let type of types">{{type.typeScenario}}</option>
-   </select>
+<div style="margin-left: 500px;margin-top: 70px;font-size: 20px;">
+    <span>
+            ModuleName:<select style="height: 25px;width: 150px;">
+                    <option *ngFor="let module of modules">{{module.moduleName}}</option>
+                 </select>
+    </span>
+	
+    <br>
+    <br>
+    <br>
+   <span style="margin-left: -4px">
+        FeatureName:<select style="height: 25px;width: 150px;margin-left: 1px">
+                <option *ngFor="let feature of features">{{feature.featureName}}</option>
+             </select>
+   </span>
+   <br>
+<br>
+<br>
+   <span style="margin-left: 77px;margin-top: 572px">
+        Type:<select style="height: 25px;width: 150px">
+                <option *ngFor="let type of types">{{type.typeScenario}}</option>
+             </select>
+   </span>
 <br>
 <br>
 <br>
- priority:<select  >
-      <option *ngFor="let priority of priorities">{{priority.priorityScenario}}</option>
-   </select>
+<span style="margin-left: 55px">
+       Priority:<select style="height: 25px;width: 150px;margin-left: 4px" >
+                <option *ngFor="let priority of priorities">{{priority.priorityScenario}}</option>
+             </select>
+</span>
    <br>
    <br>
    <br>
-Estimated Time:<input type="time" step="1" >
-<br>
-<button>Import1</button>
+<span style="margin-left: -18px;">
+        Estimated Time:<input type="time" step="1" style="width: 150px;" >
+        <br><br>
+        <br>
+        <br>
+        <button style="height: 35px;width: 80px;margin-left:65px">Import1</button>
+</span>
+<span>
+    <button style="background-color: green;height: 35px;width: 80px;margin-left: 45px">Save</button>
+</span>
  <router-outlet></router-outlet>  
 </div>

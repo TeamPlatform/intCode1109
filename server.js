@@ -57,7 +57,7 @@ app.get('/importType',function(req,res){
   console.log("kkkkkkkkkkkkkkkkkkkkk")
     db.types.find({},function(err,doc){        
         res.json(doc);
-         console.log(doc)
+         //console.log(doc)
     })
 })
 app.get('/importPriority',function(req,res){
@@ -66,6 +66,34 @@ app.get('/importPriority',function(req,res){
     db.priority.find({},function(err,doc){        
         res.json(doc);
         // console.log("mm"+doc)
+    })
+})
+app.get('/getModuleName',function(req,res){
+     
+     
+  
+    db.moduleName.find({},function(err,doc){        
+        res.json(doc);
+        //console.log(doc)
+    })
+})
+app.get('/featureName',function(req,res){
+     
+     
+  
+    db.featureName.find({},function(err,doc){        
+        res.json(doc);
+        //console.log(doc)
+    })
+})
+app.get('/getFeatureName:ss',function(req,res){
+     console.log("llllllllllllllllll")
+     var moduleName1=req.params.ss
+     moduleName1 = parseInt(moduleName1);
+  console.log(moduleName1+"llllllllllllllllll")
+    db.featureName.find({"moduleId":moduleName1},function(err,doc){        
+        res.json(doc);
+        console.log(doc)
     })
 })
 app.post('/postModuleName',function(req,res)
