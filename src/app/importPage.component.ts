@@ -1,14 +1,11 @@
 import { Component,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-=======
 import { Http,Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { URLSearchParams } from '@angular/http';
 
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
 import{ImportServiceComponent} from './importPage.service';
 import {ProjectDetailServiceComponent} from './pDetail.service';
 
@@ -38,10 +35,6 @@ export class ImportComponent implements OnInit   {
    priorities:Post[];
   features:Post[];
   modules=[];
-<<<<<<< HEAD
-
-   constructor(private importService:ImportServiceComponent,private router: Router,private data:ProjectDetailServiceComponent){
-=======
   allData:any;
   moduleSelected:string;
 featureSelected:string;
@@ -50,14 +43,13 @@ prioritySelected:string;
 timeGiven:string;
    constructor(private importService:ImportServiceComponent,private router: Router,
      private data:ProjectDetailServiceComponent,private http:Http){
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
-	//alert("jjjjjjjjjjjj")
+  //alert("jjjjjjjjjjjj")
 
    }
 
 
       ngOnInit(){
-  	
+    
 this.data.projectDetails()
           .subscribe(Data => this.modules=Data, error => console.log(error));
           this.importService.getTypeDetails()
@@ -82,6 +74,9 @@ console.log(this.types)
 
 
       }
+      getfolder(e) {
+   console.log(typeof(e))
+}
 
 saveImportData(){
   

@@ -32,21 +32,5 @@ export class ImportServiceComponent {
  
 
   }
-<<<<<<< HEAD
-=======
 
-//  importSaveDetails(dataImportScript){
-// console.log(dataImportScript)
-// //   let urlSearch= new URLSearchParams();
-// // urlSearch.append('moduleName', dataImportScript);
-// //urlSearch.append('featureName', dataImportScript);
-//     return this.http.post('/savingImportData',dataImportScript)
-//       .subscribe(data => {
-//       console.log(data);
-//     });
- 
-
-//   }
-
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
 }

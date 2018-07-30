@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-<div>  <div class ="g" >
-   <button type="button" style="background-color:blue;" onclick="alert('Admin Page')" >Admin</button>
-       <button type="button" style="background-color:blue;" onclick="alert('Sign Out Successfully')">Sign Out</button>
-   
-   </div>
+<div>
+<app-header></app-header>
+
 <br>
 <br>
 <br>
@@ -16,35 +13,14 @@
 
 <div class = "d">   
 <p style="font-size: 20px">    <b>  Modules  </b></p>
-=======
-<div>
 
 
-<app-header></app-header>
- <!--     <div class ="g" >
-{{"Admin"}}
-    
-          <button type="button" style="background-color:blue;" [routerLink]="['/']">Sign Out</button>
-      <router-outlet></router-outlet>
-      </div> -->
- <br>
- <br>
- <br>
- 
-     <h1 > Project Detail </h1>
- 
-<h3> ProjectName:{{projectName}} </h3>
-  
-
-
-<div class = "d">   
-  <p>    <b>  Modules  </b></p>
   
          
     <div >
     <ul  *ngFor="let module of moduleName ; let i = index" >
     
-  <li    (click)="manualtoggle(module.moduleName,i)"  class="glyphicon glyphicon-folder-open" >{{module.moduleName}}
+  <li    (click)="manualtoggle(module.moduleName,i)"  class="glyphicon glyphicon-folder-open" style="font-size: 20px">{{module.moduleName}}
           
 
 <br><br>
@@ -59,32 +35,12 @@
               </ul>
 
 
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
 
-      
- <div >
- <ul   *ngFor="let module of moduleName; let s=index">
-  
-      <li    (click)="manualtoggle(s)"  class="glyphicon glyphicon-folder-open" style="font-size: 20px">{{module.moduleName}}
-
-<<<<<<< HEAD
-<!-- <br><br> -->
-              <ul *ngIf="s===indexvalue" >
-             <li   *ngFor="let child of moduleChild"  class="glyphicon glyphicon-file">
-      
-               {{child.featureName}}  
-                     
-                  
-             </li>
-</ul>
-
-=======
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
 </li>
 </ul>
 </div>
 </div>
-<<<<<<< HEAD
+
 
 
 
@@ -96,31 +52,21 @@
      
      <th style="width: 1828px;text-align: center;font-size: 20px;;" (click)="showTestExecution()" class="active" [style.background-color] = "testExecution==true ? 'green' : 'cyan'" >Test Execution</th>
 
-=======
-  
- 
-  
-<div class="a" >
-    <table style="height: 444px">
-        <tr style="position: absolute;" >
-          <th (click)="changeShowStatus()" class="active" style="width: 2000px;text-align: center;" [style.background-color] = "show==true ? 'green' : 'cyan'"> Test Planning</th>
-
-        
-        <th style="width: 1828px;text-align: center;" (click)="showTestExecution()" class="active" [style.background-color] = "testExecution==true ? 'green' : 'cyan'" >Test Execution</th>
 
 
-       <th style="text-align: center;">Report</th>
+       <th style="text-align: center;font-size: 20px">Report</th>
         </tr>
         <td *ngIf="show==true" >
-          <div style="margin-top: -190px;position: absolute;">
-            <table style="width: 994px;">
-              <th (click)="goCreateModule()" style="text-align: center">CreateModule</th>
+          <div style="margin-top: -303px;position: absolute;">
+            <table style="width: 1215px;">
+              <th (click)="goCreateModule()" style="text-align: center;
+              font-size: 15px" [style.background-color] = "displayModule==true ? 'lightblue' : 'cyan'">CreateModule</th>
               
   
-              <th (click)="goCreateFeature()" style="text-align: center">CreateFeature</th>
+              <th (click)="goCreateFeature()" style="text-align: center;font-size: 15px" [style.background-color] = "displayFeature==true ? 'lightblue' : 'cyan'">CreateFeature</th>
               
   
-              <th (click)="goImport()" style="text-align: center">ImportScript</th>
+              <th (click)="goImport()" style="text-align: center;font-size: 15px" [style.background-color] = "displayImport==true ? 'lightblue' : 'cyan'">ImportScript</th>
               
             </table>
             <app-module *ngIf="displayModule==true"></app-module>
@@ -130,48 +76,6 @@
         </td>
         
         
-        
-        <div style="width: 1px;height: 444px">
-        <tr style="height: 500px">
-<!--       
-    <td *ngIf="show==true" >
-      <button (click)="goCreateModule()" class="button button1" style="margin-left: 100px">CreateModule</button>
-  <app-module *ngIf="displayModule==true"></app-module>
-    
-<! <br>
-<br>
-<app-module></app-module> -->
-     <!-- </td> -->
-
-
-    <!-- <td *ngIf="show==true"><button (click)="goCreateFeature()" class="button button2" style="margin-left: 100px">CreateFeature</button>
-<app-feature *ngIf="displayFeature==true"></app-feature>
-
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
-
-    <th style="text-align: center;font-size: 20px;">Report</th>
-     </tr>
-     <td *ngIf="show==true" >
-       <div style="margin-top: -303px;position: absolute;">
-         <table style="width: 1215px;">
-           <th (click)="goCreateModule()" style="text-align: center;font-size: 15px;" [style.background-color] = "displayModule==true ? 'lightblue' : 'cyan'">CreateModule</th>
-           
-
-<<<<<<< HEAD
-           <th (click)="goCreateFeature()" style="text-align: center;font-size: 15px;" [style.background-color] = "displayFeature==true ? 'lightblue' : 'cyan'">CreateFeature</th>
-           
-
-           <th (click)="goImport()" style="text-align: center;font-size: 15px;" [style.background-color] = "displayImport==true ? 'lightblue' : 'cyan'">ImportScript</th>
-           
-         </table>
-     
-     
-         
-         <app-module *ngIf="displayModule==true"></app-module>
-     <app-feature *ngIf="displayFeature==true"></app-feature>
-     <app-import *ngIf="displayImport==true"></app-import>
-     </div>
-     </td>
      
      
      
@@ -187,27 +91,12 @@
                   </table>
              </div>
          </td>
-<!--       
- <td *ngIf="show==true" >
-   <button (click)="goCreateModule()" class="button button1" style="margin-left: 100px">CreateModule</button>
-<app-module *ngIf="displayModule==true"></app-module>
+    
+
  
-<! <br>
-<br>
-<app-module></app-module> -->
-  <!-- </td> -->
 
- <!-- <td *ngIf="show==true"><button (click)="goCreateFeature()" class="button button2" style="margin-left: 100px">CreateFeature</button>
-<app-feature *ngIf="displayFeature==true"></app-feature>
-
- </td>
-
-  <td *ngIf="show==true"><button (click)="goImport()" class="button button3" style="margin-left: 100px">ImportScript</button>
-<app-import *ngIf="displayImport==true"></app-import>
-  </td>
-  <td *ngIf="show==true"> <button style="background-color:green;margin-left: 100px;padding: 5px;width: 80px">save </button></td> --> 
   
-<!-- <td *ngIf="testExecution==true" style="width: 783px;"><app-test></app-test></td> -->
+
  <td *ngIf="mo==true"><app-cap></app-cap></td>
  <td *ngIf="execute==true"><app-test></app-test> </td>
 </tr>
@@ -221,25 +110,10 @@
 </div>
    </table>
   
-=======
-     <td *ngIf="show==true"><button (click)="goImport()" class="button button3" style="margin-left: 100px">ImportScript</button>
-<app-import *ngIf="displayImport==true"></app-import>
-     </td>
-     <td *ngIf="show==true"> <button style="background-color:green;margin-left: 100px;padding: 5px;width: 80px">save </button></td> --> 
-     
-<td *ngIf="testExecution==true" style="width: 783px;"><app-test></app-test></td>
-</tr>
 
 
-  <!-- <tr> -->
-    <!--  <td> </td>
-     <td> </td> -->
-    <!--  <td>  <br><br> <br><br><br><button style="background-color:green;">save </button></td>
-    </tr> -->
-  </div>
-      </table>
      
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
+
 </div>
 <router-outlet></router-outlet>  
 </div>

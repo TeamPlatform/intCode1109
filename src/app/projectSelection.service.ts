@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Http,Response } from '@angular/http';
-
+import { URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {Post} from './post'
@@ -9,7 +9,7 @@ import {Post} from './post'
 export class ProjectSelectionServiceComponent {
 
  
- constructor(public http:Http){
+ constructor(private http:Http){
 
  }
    getProjectSelectionDetails():Observable<Post[]>{
@@ -18,5 +18,15 @@ export class ProjectSelectionServiceComponent {
   .map((response:Response)=><Post[]>response.json());
 
   }
+//      folderNameDetails(folder):Observable<Post[]>{
+//      	//alert(typeof(folder)+folder)
+//  	//alert("ll00")
+//  	  let urlSearchParams = new URLSearchParams();
+// urlSearchParams.append('folderName', "folder");
+// console.log(urlSearchParams)
+//    return this.http.post("/selectedFolderName",urlSearchParams)
+//   .map((response:Response)=><Post[]>response.json());
+
+//   }
   
 }

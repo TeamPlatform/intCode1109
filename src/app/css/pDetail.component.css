@@ -12,37 +12,22 @@ h1 {
     float: center;
   padding : 20px;
       }
-<<<<<<< HEAD
       div.g {
     float: right;
       }
-=======
-    /*  div.g {
-    float: right;
-      }*/
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
     
         div.d {
           position: absolute;
           left :0%;
           width: 188px;
-<<<<<<< HEAD
-          height: 700px;
-=======
-          height: 450px;
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
+          height: 800px;
           border : 3px solid black;
         }
         div.a {
             position: relative;
             left : 187px;
-<<<<<<< HEAD
             width: 1219px;
-            height: 700px;
-=======
-            width: 1000px;
-            height: 450px;
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
+            height: 800px;
             border: 3px solid black;
             
         }
@@ -77,7 +62,7 @@ h1 {
           }
 
  .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; / Green /
     border: none;
     color: white;
     padding: 13px 20px;
@@ -88,12 +73,12 @@ h1 {
     margin: 4px 2px;
     cursor: pointer;
 }
-
-.button1 {background-color: #008CBA;margin-left: 100px} /* Blue */
+/*
+.button1 {background-color: #008CBA;margin-left: 100px} / Blue /
 .button2 {   
-             background-color: #f44336;margin-left: 100px} /* Red */ 
-.button3 {background-color: #555555;margin-left: 100px} /* Black */
- 
+             background-color: #f44336;margin-left: 100px} / Red / 
+.button3 {background-color: #555555;margin-left: 100px} / Black /
+ */
  /* div.j {
     background-color: lightgrey;
     width: 50px;
@@ -151,7 +136,7 @@ th.active:{
 }
 
  .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; / Green /
   /*  border: none;
     color: white;
     padding: 13px 20px;

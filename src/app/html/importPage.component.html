@@ -1,78 +1,49 @@
-<<<<<<< HEAD
 <div style="margin-left: 500px;margin-top: 70px;font-size: 20px;">
     <span>
-            ModuleName:<select style="height: 25px;width: 150px;">
-=======
-<div style="margin-left: 740px;margin-top: 30px">
-    <span>
-            ModuleName:<select style="height: 25px;width: 110px;" [(ngModel)]="moduleSelected">
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
+            ModuleName:<select style="height: 25px;width: 150px;" [(ngModel)]="moduleSelected">
                     <option *ngFor="let module of modules">{{module.moduleName}}</option>
                  </select>
     </span>
-	
+  
     <br>
     <br>
     <br>
    <span style="margin-left: -4px">
-<<<<<<< HEAD
-        FeatureName:<select style="height: 25px;width: 150px;margin-left: 1px">
-=======
-        FeatureName:<select style="height: 25px;width: 110px;margin-left: 1px" [(ngModel)]="featureSelected">
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
+        FeatureName:<select style="height: 25px;width: 150px;margin-left: 1px" [(ngModel)]="featureSelected">
                 <option *ngFor="let feature of features">{{feature.featureName}}</option>
              </select>
    </span>
    <br>
 <br>
 <br>
-<<<<<<< HEAD
    <span style="margin-left: 77px;margin-top: 572px">
-        Type:<select style="height: 25px;width: 150px">
-=======
-   <span style="margin-left: 38px;margin-top: 572px">
-        Type:<select style="height: 25px;width: 110px" [(ngModel)]="typeSelected">
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
+        Type:<select style="height: 25px;width: 150px" [(ngModel)]="typeSelected">
                 <option *ngFor="let type of types">{{type.typeScenario}}</option>
              </select>
    </span>
 <br>
 <br>
 <br>
-<<<<<<< HEAD
 <span style="margin-left: 55px">
-       Priority:<select style="height: 25px;width: 150px;margin-left: 4px" >
-=======
-<span style="margin-left: 25px">
-       Priority:<select style="height: 25px;width: 110px;margin-left: 4px" [(ngModel)]="prioritySelected">
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
+       Priority:<select style="height: 25px;width: 150px;margin-left: 4px" [(ngModel)]="prioritySelected">
                 <option *ngFor="let priority of priorities">{{priority.priorityScenario}}</option>
              </select>
 </span>
    <br>
    <br>
    <br>
-<<<<<<< HEAD
 <span style="margin-left: -18px;">
-        Estimated Time:<input type="time" step="1" style="width: 150px;" >
+        Estimated Time:<input type="number"  style="width: 150px;" [(ngModel)]="timeGiven">
         <br><br>
+        scripts:<input type="text" >
         <br>
+
         <br>
-        <button style="height: 35px;width: 80px;margin-left:65px">Import1</button>
+      ImportScript:<input type="file" (change)="getfolder($event)">
 </span>
-<span>
-    <button style="background-color: green;height: 35px;width: 80px;margin-left: 45px">Save</button>
-=======
-<span style="margin-left: -10px;">
-        Estimated Time:<input type="number"  style="width: 110px;" [(ngModel)]="timeGiven">
-        <br><br>
-        <br>
-        <br>
-        <button style="height: 35px;background-color: tomato;width: 80px;">Import1</button>
-</span>
-<span>
+ <br>
+ <span>
     <button style="background-color: green;height: 35px;width: 80px;margin-left: 45px" (click)="saveImportData()">Save</button>
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
 </span>
  <router-outlet></router-outlet>  
 </div>

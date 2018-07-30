@@ -1,12 +1,9 @@
-<<<<<<< HEAD
+
+
 <div style="margin-top: 70px;margin-left: 300px;font-size: 20px;">
-	<select>
-		<option *ngFor="let modules  of moduleDatas">{{modules.moduleName}}</option>
-=======
-<div style="margin-top: 30px;margin-left: 333px">
 	<select [(ngModel)]="selectedValue" (change)="mData(selectedValue)">
 		<option  *ngFor="let modules  of moduleDatas" >{{modules.moduleName}}</option>
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
+
 	</select>
 
   Create Feature:<input type="text" [(ngModel)]="featureName">

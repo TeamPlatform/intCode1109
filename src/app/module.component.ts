@@ -26,6 +26,7 @@ export class ModuleComponent implements OnInit   {
   moduleIdincrement:number=0;
   incModuleId:string; 
 showInc:Post[];
+nterval: any;
     constructor(public http:Http,private sendModuleName:ModuleServiceComponent,private inc:ProjectDetailServiceComponent) {
   
   
@@ -42,9 +43,29 @@ this.sendModuleName.idDetails()
 
       }
  
- 
+ idInc(incId){
+  // console.log(hh[0].moduleId)
+  // console.log(hh.length)
+if(incId.length==0){
+
+alert("make responce o")
+}
+else{
+  var collMId=parseInt(incId[0].moduleId)
+  //alert(collMId)
+   var iCollMId=collMId+1;
+   this.incModuleId=iCollMId.toString();
+  //alert( this.incModuleId+"string")
+}
+
+
+}
 
    saveModuleName(){
+   this.nterval=setInterval(() => {
+      this.ngOnInit();
+ 
+ }, 1000);
 //alert(this.moduleName)
 //alert(this.moduleIdincrement++)
 if(this.moduleName==undefined){
@@ -69,23 +90,12 @@ urlSearchParams.append('moduleId', this.incModuleId);
 
 
    }
-
-idInc(incId){
-	// console.log(hh[0].moduleId)
-	// console.log(hh.length)
-if(incId.length==0){
-
-alert("make responce o")
-}
-else{
-	var collMId=parseInt(incId[0].moduleId)
-	//alert(ch)
-	 var iCollMId=collMId+1;
-	 this.incModuleId=iCollMId.toString();
-	//alert(this.incModuleId+"string")
-}
+ngOnDestroy(){
+ console.log("destroy")
+  clearInterval(this.nterval);
 
 
 }
+
 
 }

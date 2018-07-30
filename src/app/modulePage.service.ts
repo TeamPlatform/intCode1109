@@ -36,8 +36,5 @@ export class ModuleServiceComponent {
 
   }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 33fcd6213efeb68638527db387c1a60da88768cf
 }
