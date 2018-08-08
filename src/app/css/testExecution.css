@@ -25,7 +25,17 @@ button {
     width: 110px;
 }
 
-table, th, td {
+thead, tbody { display: block; }
+
+tbody {
+    width: 100%;
+    height: 118px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
+
+/* table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
     height: 50px;
@@ -34,4 +44,4 @@ table, th, td {
 th, td {
     padding: 5px;
     text-align: center;       
-}
+} */

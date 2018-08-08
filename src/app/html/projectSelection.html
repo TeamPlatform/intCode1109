@@ -1,38 +1,42 @@
 <div>
   
   
-    <app-header></app-header>
+  <app-header></app-header>
 
-    <br><br><br>
+  <br><br><br>
 
-    <h2 style="text-align: center;">Project Selection Page</h2>
+  <h2 style="text-align: center;">Project Selection Page</h2>
 
+
+
+     <div class="form-group" style="margin-left: 40px" >
+
+    <label for="sel1">
+    Select Project:
+  </label>
+  <select   [(ngModel)]="selectedDropdown" (change)="dropdownData($event.target.value)" >
+    <option *ngFor="let data of datas">{{data.projectSelection}}</option>
+ </select>
+
+
+  </div>
+
+<form >
+  <div>
+  <input type="file"  (change)="filesPicked($event)" name="file" id="files" class="custom-file-input"  webkitdirectory mozdirectory msdirectory odirectory directory multiple="multiple"> <button><label for="files" class="custom-file-label">Import Project
+   </label>  </button>
+   <button type="button" (click)="createDbs()">CreateDbs</button>
+  </div>
   
+</form>
+<br>
+<br>
+<br>
+{{message}}
+<!-- <p>Directory: <input type="file" webkitdirectory mozdirectory /></p> -->
 
-       <div class="form-group" style="margin-left: 40px" >
-
-      <label for="sel1">
-      Select Project:
-    </label>
-    <select   [(ngModel)]="selectedDropdown" (change)="dropdownData($event.target.value)" >
-      <option *ngFor="let data of datas">{{data.ProjectSelection}}</option>
-   </select>
-
-
-    </div>
-
-  <form >
-    <div>
-    <input type="file"  (change)="filesPicked($event)" name="file" id="files" class="custom-file-input"  webkitdirectory mozdirectory msdirectory odirectory directory multiple="multiple"> <button><label for="files" class="custom-file-label">Import Project
-     </label>  </button>
-     <!-- <button type="button" (click)="upload()">Upload</button> -->
-    </div>
-    
-  </form>
-  <!-- <p>Directory: <input type="file" webkitdirectory mozdirectory /></p> -->
-
- <router-outlet  ></router-outlet>
+<router-outlet  ></router-outlet>
 
 
-  
+
 </div>
