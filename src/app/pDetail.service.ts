@@ -22,6 +22,12 @@ export class ProjectDetailServiceComponent {
   .map((response: Response) => <Post[]>response.json());
 
   }
+     createFolder(folderName): Observable<Post[]>{
+ //alert(folderName)
+   return this.http.get("/createFolder"+folderName)
+  .map((response: Response) => <Post[]>response.json());
+
+  }
 
     childModuleDetails(index): Observable<Post[]> {
 

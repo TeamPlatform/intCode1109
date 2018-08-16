@@ -33,6 +33,8 @@ export class SelectionComponent implements OnInit, OnChanges {
  Folder:any;
  sucess:any;
  message:any;
+ pomFile:any;
+ testFile:any;
    constructor(private ata:ProjectSelectionServiceComponent,private router: Router,private http:Http){
 	this.theFiles= [];
 
@@ -74,17 +76,27 @@ export class SelectionComponent implements OnInit, OnChanges {
  var files = e.target.files;
      var path = files[0].webkitRelativePath;
     var Folder = path.split("/");
+    console
     this.projectName=Folder[0]
     //alert(Folder[0]);
    //this.createDbs(projectName)
     for (var i = 0; i <totalLength ; i++) {
+      //console.log("pqqqqqqqqqwwww")
      this.theFiles =<Array<File>>e.target.files;
 //console.log(this.theFiles)
 
     this.relativePath = this.theFiles[i].webkitRelativePath;
     this.currentFile = this.theFiles[i];
-
-   // console.log(this.relativePath)
+   console.log(this.relativePath)
+  // console.log(this.currentFile )
+    var checkPom=this.relativePath.split("/").pop();
+    //console.log(ddd)
+  if (checkPom=="pom.xml" ){
+   this.pomFile="present"
+    }
+    if (checkPom=="TestRunnerNew.java" ){
+   this.testFile="present"
+    }
     //this.upload(this.relativePath,this.theFiles[i] )
    // console.log(this.relativePath)
   //var str = "public/inline.js";
@@ -97,19 +109,27 @@ export class SelectionComponent implements OnInit, OnChanges {
 console.log(typeof(result)+result)
 
      // this.makeFileRequest("/projectSelection", [],sendFile).then((result) => {
-            if (result=="Imported Succesffully"){
-              console.log("kkkyyyyyy")
-            this.message=result
-}
-else{
-  this.message="Please Wait"
-}
+//             if (result=="Imported Succesffully"){
+//               //console.log("kkkyyyyyy")
+//             this.message=result
+// }
+// else{
+//   this.message="Please Wait"
+// }
         }, 
         (error) => {
             console.error("error");
         });
     
    
+}
+
+  
+if( this.pomFile!="present" ){
+  alert("pom.xml is not present")
+}
+if( this.testFile!="TestRunnerNew.java"){
+  alert("TestRunnerNew.java is not present")
 }
 
    

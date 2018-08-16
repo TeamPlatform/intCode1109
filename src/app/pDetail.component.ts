@@ -38,6 +38,10 @@ testExecution:boolean;
 displayModule:boolean;
 displayFeature:boolean;
 displayImport:boolean;
+isValid:string;
+importMessage:any;
+valid:boolean
+
 //selectedModule:any;
 
     constructor(private router: Router,private route:ActivatedRoute,private module:ProjectDetailServiceComponent) {
@@ -58,6 +62,7 @@ displayImport:boolean;
             let dataFromProjectSelectionDropdown=sessionStorage.getItem('key');
             this.projectName=dataFromProjectSelectionDropdown;
             this.module.projectDetails().subscribe(moduleData =>this.moduleName=moduleData);
+      
   // this.module.childModuleDetails(index)
   //   .subscribe(moduleData =>{this.oduleChild=moduleData;console.log(this.oduleChild) });
   //     //console.log(this.moduleChild)
@@ -110,20 +115,50 @@ this.module.childModuleDetails(index)
  
         changeShowStatus(){
 //alert( this.show)
+//this.isValid="isValid";
+ if( this.valid!=true){
            this.show = true;
            this.testExecution=false;
            this.mo=false;
-           this.execute=false; 
+           this.execute=false;
+            } 
  
         }
     
-        showTestExecution(){
+        showTestExecution(folderName){
+          this.valid=true;
+          this.module.createFolder(folderName).subscribe(moduleData =>{this.importMessage=moduleData;this.importData(this.importMessage)});
+        // alert(ss)
+        //alert(folderName+"ll")
+          //this.module.createFolder(folderName)
 //alert("2")
-   this.show = false;
+console.log(this.importMessage+"oppppu")
+if(this.importMessage!="Succesffully CreateDbs"){
+ this.importMessage="Please Wait While Files Are Synchronizing"
+
+
+}
+// else{
+//   this.show = false;
+//    this.testExecution=true;
+//    this.mo=false;
+//    this.execute=false;
+//  // this.importMessage="Please Wait While Files Are Synchronizing "
+// }
+
+
+   
+        }
+        importData(data){
+//console.log(data)
+          this.importMessage=data
+           this.show = false;
    this.testExecution=true;
    this.mo=false;
    this.execute=false;
-        }
+   this.valid=false;
+
+}
 
         goCreateModule(){
           //var displayModule:string
