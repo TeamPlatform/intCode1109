@@ -3,6 +3,7 @@ export interface Post{
 	moduleChild:any[];
 	unitedFM:any[];
 	moduleId:number;
+	testScriptsData:any;
 	//indexvalue:number;
 	//validMn:string;
 	length:number;

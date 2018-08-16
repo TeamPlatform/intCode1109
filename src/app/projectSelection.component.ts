@@ -22,14 +22,14 @@ import {Post} from './post';
 export class SelectionComponent implements OnInit, OnChanges {
    // headers: Headers;
    //  options: RequestOptions;
-   theFiles:Array<File>;
+   theFiles:any;
    relativePath :any;
    datas:Post[]; 
    selectedDropdown:string; 
    child:string
    projectSelectionData=[];
    currentFile:any;
- 
+ projectName:string;
  Folder:any
    constructor(private ata:ProjectSelectionServiceComponent,private router: Router,private http:Http){
 	this.theFiles= [];
@@ -39,9 +39,9 @@ export class SelectionComponent implements OnInit, OnChanges {
 
       ngOnInit(){
   	
-
+//console.log("iiiiiiiiiiiiiiiii")
           this.ata.getProjectSelectionDetails()
-          .subscribe(llData => this.datas=llData, error => console.log(error));
+          .subscribe(llData => {this.datas=llData, console.log(this.datas)});
 
          // console.log(this.datas)
 
@@ -69,12 +69,19 @@ export class SelectionComponent implements OnInit, OnChanges {
 
  filesPicked(e) {
      let totalLength =  e.target.files.length;
+ var files = e.target.files;
+     var path = files[0].webkitRelativePath;
+    var Folder = path.split("/");
+    this.projectName=Folder[0]
+    //alert(Folder[0]);
+   //this.createDbs(projectName)
     for (var i = 0; i <totalLength ; i++) {
      this.theFiles =<Array<File>>e.target.files;
 //console.log(this.theFiles)
 
     this.relativePath = this.theFiles[i].webkitRelativePath;
     this.currentFile = this.theFiles[i];
+
    // console.log(this.relativePath)
     //this.upload(this.relativePath,this.theFiles[i] )
    // console.log(this.relativePath)
@@ -99,7 +106,21 @@ export class SelectionComponent implements OnInit, OnChanges {
 
    
 }
+createDbs(){
+console.log( this.projectName+"pppppppppp")
+  let urlSearchParams = new URLSearchParams();
+urlSearchParams.append('projectName', this.projectName);
 
+
+    return this.http.post('/selectedProjectName', urlSearchParams)
+      .subscribe(data => {
+      console.log(data);
+    });
+
+
+
+
+}
 //  upload(sendPath,sendFile) {
 // //console.log(sendPath)
 // console.log(sendFile)
@@ -119,7 +140,7 @@ export class SelectionComponent implements OnInit, OnChanges {
 //         });
 //     }
         makeFileRequest(url: string, params: Array<string>, files: Array<File>,i:number,totalLength :number) {
-            console.log(' i '+i);
+            //console.log(' i '+i);
             // console.log("url  "+url)
             // console.log("urlparams  "+params)
             // console.log(files)

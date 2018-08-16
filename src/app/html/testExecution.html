@@ -1,106 +1,95 @@
 <style type="text/css">
 
-.div1 {
-    margin-left: 111px;
-    width: 700px;
-}
-
-select {
-    width: 150px;
-}
-
-.span1 {
-    margin-left: 40px;
-}
-
-.span2 {
-    margin-left: 43px;
-}
-
-button {
-    padding: 10px;
-    width: 110px;
-}
-
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    height: 50px;
-    width: 600px;
-}
-th, td {
-    padding: 5px;
-    text-align: center;       
-}
-</style>
-
-<body style="background-color: cyan; margin-left: 230px;height: 120px;font-size: 20px;">
-  
-    <div class="div1">
-        <span>
-            Module :
-            <select style="width: 200px;height: 30px" >
-                <option *ngFor = "let var_moduleName of moduleNames" >{{var_moduleName.moduleName}}</option>
-                
-            </select>
-        </span>
-        <span class="span1">
-            Feature :
-            <select style="width: 200px;height: 30px" >
-                 <option *ngFor = "let var2_featureName of featureNames" >{{var2_featureName.featureName}}</option>
-                
-            </select>
-        </span>        
-    </div>
-
-    <br><br>
-
-    <div style="margin-left: 1px;">
-            <span style="margin-left: 130px">
-                Type : 
-                <select style="width: 200px;height: 30px;margin-left: 5px">
-                    <option *ngFor = "let var3_type of typeArray">{{var3_type.typeScenario}}</option>
+    .div1 {
+        margin-left: 111px;
+        width: 671px;
+    }
+    
+    select {
+        width: 150px;
+    }
+    
+    .span1 {
+        margin-left: 40px;
+    }
+    
+    .span2 {
+        margin-left: 43px;
+    }
+    
+    button {
+        padding: 10px;
+        width: 110px;
+    }
+    
+    </style>
+    
+    <body style="background-color: cyan; margin-left: 230px;height: 60px;font-size: 20px; width: 976px;">
+        
+        <div style="margin-right: 130px;margin-bottom: 24px;text-align: center;height: 70px;">
+            <span>
+                Project Name : 
+                <select [(ngModel)]="projectId"  >
+                    <option *ngFor = "let data of datas" value="{{data.projectId}}">{{data.projectSelection}}
+                        
+                    </option>
+                </select>
+            </span>
+        </div>
+        
+        <div class="div1">                        
+            <span>
+                Module :
+                <select style="width: 200px;height: 30px"  [(ngModel)]="moduleId"  >
+                    <option *ngFor = "let var_moduleName of moduleNames" value="{{var_moduleName.moduleId}}">{{var_moduleName.moduleName}}</option>
                     
                 </select>
             </span>
-            <span class="span2" >
-                Priority :
-                <select style="width: 200px;height: 30px">
-                   <option *ngFor = "let var4_Priority of priorityArray">{{var4_Priority.priorityScenario}}</option>
-                   
-                </select>               
-            </span>
-    </div>
-
-    <br>
-
-    <button style="margin-left: 410px;margin-top: 10px" >Search</button>
-
-    <br><br>
-
-    <table style="width: 670px;height: 188px;margin-left: 120px">
+            <span class="span1">
+                Feature :
+                <select style="width: 200px;height: 30px"  [(ngModel)]="featureId"  >
+                     <option *ngFor = "let var2_featureName of featureNames" value="{{var2_featureName.featureId}}">{{var2_featureName.featureName}}</option>
+                    
+                </select>
+            </span>        
+        </div>
+    
+        <br><br>
+    
+        <br>
+    
+        <button style="margin-left: 410px;margin-top: 10px" (click)=search(projectId,moduleId,featureId)>Search</button>
+        <button (click)=run(moduleId,featureId,lineNum,projectId)>Run</button>
+    
+        <br><br>
+    
         
-        <thead>
-          <th>SNo.</th>
-          <th>Module</th>
-          <th>Feature</th>
-          <th>Type</th>
-          <th>Priority</th>
-        </thead>
-        <tr>
-          <td>1</td>
-          <td>NgModule</td>
-          <td>AppComponent</td>
-          <td>Login</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-  
-</body>
+            
+    <div class="container">
+            <table class="table table-condensed" style="width:100%">
+              <thead style="width:100%">
+                <tr *ngIf="srch==true">
+                        <th></th>
+                        <th style="width: 110px;">Module Name</th>
+                        <th style="width: 110px;">Feature Name </th>
+                        <th style="width: 500px;">Script Name</th>
+                        <th>Script Id</th>
+                        <th>Line Num</th>
+                        <th>Project Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                    <tr  *ngFor = "let test of testScriptsData; let i = index;" >   
+                            <td *ngIf="srch==true" ><input type="checkbox" (click)=row(i,test)></td>             
+                            <td *ngIf="srch==true" style="width: 110px;">{{test.moduleName}}</td>
+                            <td *ngIf="srch==true" style="width: 110px;">{{test.featureName}}</td>
+                            <td *ngIf="srch==true" style="width: 538px;">{{test.scriptName}}</td>
+                            <td *ngIf="srch==true">{{test.scriptId}}</td>
+                            <td *ngIf="srch==true">{{test.lineNum}}</td>
+                            <td *ngIf="srch==true">{{test.projectSelection}}</td>
+                        </tr>               
+               </tbody>
+            </table>
+          </div>
+ </body>
+    

@@ -213,8 +213,6 @@ app.post("/projectSelection/:a",upload.any(),function(req, res,next) {
           },wait)
            
      
-
-
             
                  }
                   //console.log(m+" exectutr loop "+"   "+files[m].filename) 
@@ -497,20 +495,15 @@ app.get('/mobileAppsDetails',function(req,res){
 
 
 
-//   app.get('/rahuldetails:rahul',function(req,res){
-//       var idd=req.params.rahul;
-//       console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
-//       console.log(idd)
-//     db.featureName.find({},function(err,doc){
-//         res.json(doc);
-//        console.log(doc) ;
-//     })
-//   })
-
-
-
-
-
+  app.get('/rahuldetails:rahul',function(req,res){
+      var idd=req.params.rahul;
+      console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
+      console.log(idd)
+    db.featureName.find({"featureId" :2},function(err,doc){
+        res.json(doc);
+       console.log(doc) ;
+    })
+  })
 
 
 app.get('/selectionProject',function(req,res){
@@ -534,7 +527,7 @@ app.post('/postDevicesName',function(req,res)
 app.get('/getTestScriptDetails:ss1',function(req,res){
     console.log("jjjjjjjjjjjjjrrrrrrrrrrrrrrrrrr")      
     var data = req.params.ss1;
-    //console.log(data)
+    console.log(data)
     var data_Array = data.split(",");
     var projectId = data_Array[0];
     projectId= parseInt(projectId)
@@ -550,308 +543,147 @@ app.get('/getTestScriptDetails:ss1',function(req,res){
     console.log(typeof(featureId)+featureId);
     
     
-    // db.testScript.find({"projectId":projectId,"moduleId":moduleId,"featureId":featureId},function(err,doc){
-    // res.json(doc);
-    //console.log(doc);
- 
-
-// var searchCall = function(){
-//     console.log(" search call")
-    // db.projectSelection.find({"projectId":Number(projectId)},function(err,projectDetails){
-    //     console.log(projectDetails);
-    //     db.moduleName.find({"projectId":Number(projectId),"moduleId":Number(moduleId)},function(err,moduleDetails){
-    //         console.log(moduleDetails);
-
-    //         db.featureName.find({"featureId":Number(featureId),"projectId":Number(projectId),"moduleId":Number(moduleId)},function(err,featureDetails){
-    //             console.log(featureDetails);
-    //             console.log(projectDetails[0].projectSelection,moduleDetails[0].moduleName,featureDetails[0].featureName)
-    //            // checkxml(projectDetails[0].projectSelection,featureDetails[0].featureName,lineNum,moduleDetails[0].moduleName) 
-    //         })
-    //     })
-        
-    // })
-    var count = 0;
-         db.projectSelection.find({"projectId":projectId},function(err,projectDetails){
-               db.moduleName.find({"projectId":projectId,"moduleId":moduleId},function(err,moduleDetails){
-                    db.featureName.find({"featureId":featureId,"projectId":projectId,"moduleId":moduleId},function(err,featureDetails){
-                        //          
-
-                            db.testScript.find({"projectId":projectId,"moduleId":moduleId,"featureId":featureId},function(err,testScriptDetails){
-                            // res.json(doc);
-                                console.log(moduleDetails);
-                                var newArray =  [];
-                               // for(j = 0 ;j<moduleDetails.length;j++){
-
-                                 //   for(l = 0 ;l<featureDetails.length;l++){
-                                                // console.log(doc[i].moduleId === module[j].moduleId );
-                                               // for(i = 0 ;i<testScriptDetails.length;i++){
-                                                    testScriptDetails.forEach(function(testScriptDetail) {
-                                                        //console.log(testScriptDetail);
-                                                         
-                                                 //   if(testScriptDetail.moduleId === moduleDetails[j].moduleId && testScriptDetail.featureId ===featureDetails[l].featureId){
-                                                    //  console.log(module[j].moduleName);
-                                                        obj = {}
-                                                        obj['moduleName']= moduleDetails[0].moduleName;
-                                                        obj['featureName']= featureDetails[0].featureName;
-                                                        obj['lineNum']= testScriptDetail.lineNum;
-                                                        obj['scriptName']=testScriptDetail.scriptName;
-                                                        obj['scriptId']=testScriptDetail.scriptId;
-                                                        obj['projectSelection']=projectDetails[0].projectSelection;
-                                                        newArray.push(obj)
-                                                        console.log(newArray)
-                                                        count++;
-                                                        if(count === ( testScriptDetails.length - 1)){
-                                                            console.log(" resend call eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee activate")
-                                                            res.json(newArray);
-                                                        }
-                                                  //  }
-
-                                                }); 
-
-                                               // }
-                                   // }            
-                              //  }
-                                    
-                            })   
-                    })
-                })
-         })
-// }
-// searchCall()
-
+    db.testScript.find({"projectId":projectId,"moduleId":moduleId,"featureId":featureId},function(err,doc){
+    res.json(doc);
+    console.log(doc);
+    })
 })
-//})
 
-    app.post('/testScript',function(req,res){
 
+
+app.post('/testScript:ss',function(req,res){
     console.log("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll")
+    var data = req.params.ss;
+    //console.log(data);
+    var data_Array = data.split(",");
 
-    console.log(req.body);
+    var moduleId = data_Array[0];
+    console.log(moduleId+'moduleidddddd')
+
+    var featureId = data_Array[1];
+    console.log(featureId+"featureiddddddddd")
+
+    var lineNum = data_Array[2];
+    console.log(lineNum+'linenumber')
+
+    var projectId = data_Array[3];
+    console.log(projectId+'projectId')
+
+    var projectNamePath = "/"+projectId;
+    console.log(moduleId+','+featureId+'.'+lineNum+'.'+projectNamePath);
+
+
+
+       dbsNames(moduleId,featureId,lineNum,projectId)
+    })
+  
+
+
+//     const Filehound = require('filehound');
+// Filehound.create()
+//   .ext('java')
+//   .match('*TestRunnerNew.java*')  //  .match('*TestRunnerNew.java*')
+//   .paths("./uploads/"+projectNamePath)
+  
+//   .find((err, htmlFiles) => {
+//     if (err) return console.error("handle err", err);
+//         console.log(projectNamePath)
+//         console.log(featureName+'.'+lineNum);
    
-    // var moduleId=req.body[0].moduleId;
-    // var featureId=req.body[0].featureId;
-    // var lineNum=req.body[0].lineNum;
-    // var projectId=req.body[0].projectId;
-  //  checkxml(projectDetails[0].projectSelection,featureDetails[0].featureName,lineNum,moduleDetails[0].moduleName)    
+//     var lineString = "\"Features/"+featureName+".feature:"+lineNum+"\"";
+//     console.log(lineString);
+//     console.log(htmlFiles);
+//     var fs = require('fs');
+    
+    
+//         // console.log("execTesttt111111");          
+//          var testPath = "./"+htmlFiles; 
+//          //console.log(testPath+"testpathhhhhh");
+       
+//         var data = fs.readFileSync(testPath).toString().split("\n");
+//        //  .split("\n");
+//        // console.log(data);
+       
+   
+//         //console.log( data[9].includes("@CucumberOptions"))
+//         for(i=0;i<data.length;i++)
+//         {
+//            if( data[i].includes("@CucumberOptions")=== true)
+//            {
+//                var lineString = "\"Features/"+featureName+".feature:"+lineNum+"\"";
+//                data[i] = "@CucumberOptions(features="+"{"+lineString+"},"+"";
+//            // console.log(true);
+//            }
+//         }
+               
+//          data = data.join("\n");
+        
+//         fs.writeFile(testPath,data,function(err)
+//         {
+//             if (err) return console.log(err);
+//           //  console.log(text);
+//             console.log("Replaced");
 
-  //  dbsNames (moduleId,featureId,lineNum,projectId)
-})
-var dbsNames = function(moduleId,featureId,lineNum,projectId){
+//             execTestRunner( projectNamePath)
+//          })
+
+   
+     
+
+//     //  var stream = fs.createWriteStream(htmlFiles[0]);
+// //  stream.once('open', function(fd) {
+    
+// //    stream.write("package test.java.com.zephyr.testrunner;\n\n");
+// //    stream.write("import org.junit.runner.RunWith;\n\n");
+// //    stream.write("import cucumber.api.CucumberOptions;\n");
+// //    stream.write("import cucumber.api.junit.Cucumber;\n");
+// //    stream.write("import cucumber.api.testng.AbstractTestNGCucumberTests;\n\n");
+// //    stream.write("@RunWith(Cucumber.class)\n");
+
+// //    stream.write("@CucumberOptions(features="+"{"+lineString+"},"+"\n\n");
+
+// //    stream.write("//tags={"+"@Import1,@Export11,@Map1,@search1,@Edit1,@DND1"+"},\n\n");
+// //    stream.write("glue={\"com.zephyr.stepdefinition\"},\n");
+// //    stream.write("plugin = {\"html:target/cucumber-html-report\",\n");
+// //    stream.write("\"pretty:target/cucumber-pretty.txt\",\n")
+// //    stream.write("\"json:target/cucumber6.json\"},\n")
+// //    stream.write("monochrome = false)\n\n")
+// //    stream.write("public class TestRunnerNew extends AbstractTestNGCucumberTests\n")
+// //    stream.write("{\n")
+// //    stream.write("}\n")
+// //    stream.end();
+// //    console.log("Replaced");
+// //    //  execTestRunner( projectNamePath)
+       
+// //              });
+// })
+//           });    
+//       })
+     var dbsNames = function(moduleId,featureId,lineNum,projectId)
+     {
          console.log("dbnamesdbnamesssssssssssssss");
          console.log(moduleId);
          console.log(featureId);
          console.log(lineNum);
-         console.log(projectId)        
-         
-         db.projectSelection.find({"projectId":Number(projectId)},function(err,projectDetails){
-            console.log(projectDetails);
-            db.moduleName.find({"projectId":Number(projectId),"moduleId":Number(moduleId)},function(err,moduleDetails){
-                console.log(moduleDetails);
+         console.log(projectId);
 
-                db.featureName.find({"featureId":Number(featureId),"projectId":Number(projectId),"moduleId":Number(moduleId)},function(err,featureDetails){
-                    console.log(featureDetails);
-                    console.log(projectDetails[0].projectSelection,moduleDetails[0].moduleName,featureDetails[0].featureName)
-                    checkxml(projectDetails[0].projectSelection,featureDetails[0].featureName,lineNum,moduleDetails[0].moduleName) 
-                })
-            })
-            
-        })
-}
-
-
-var checkxml = function(projectFolder,featureName,lineNum,moduleName){
-       
-        const Filehound = require('filehound');
-        Filehound.create()
-    .ext('xml')
-    //.match(b)
-    .paths( "./uploads/"+projectFolder)
-    .find((err, htmlFiles) => {
-       
-     htmlFiles.forEach(function(file) {
-      
-    var LineByLineReader = require('line-by-line');
-    lr = new LineByLineReader(file)
-    //console.log(lr)
-    lr.on('error', function (err) {
-        // 'err' contains error object
-        //console.log(" error rr rr rr ")
-    });
-    
-    lr.on('line', function (line) {
-        //console.log(line)
-
-
-        if((line.includes("<exclude>") === true) && (line.includes("</exclude>") === true) && (line.includes(".java") === true)){
-            
-        
-            var res = (line.replace("<exclude>",'').replace("</exclude>",''));
-         
-           
-
-           let pomFilePath = ( file.split("").reverse().join("")).substring(file.indexOf("\\")+1).split("").reverse().join("");
-          
-            Filehound.create()
-            .ext('java')
-            .match(res)
-            .paths( "./uploads/"+projectFolder)
-            .find((err, htmlFiles1) => {
-              testRunnerCall(htmlFiles1[0].split("\\").pop() ,projectFolder,pomFilePath,featureName,lineNum,moduleName)
-          
-            })
-          
-    
-       }
-         });
-    
-    lr.on('end', function () {
-      // console.log("  end end  Scenario  true ")
-        // All lines are read, file is closed now.
-    });
-    
-    })
-})
-}  //  checkxml
-
-var testRunnerCall = function(runnerName,path,pomFilePath,featureName,lineNum,moduleName){
-    const Filehound = require('filehound');
-    Filehound.create()
-  .ext('java')
-  .match(runnerName)  //  .match('*TestRunnerNew.java*')
-  .paths("./uploads/"+path)
-  
-  .find((err, htmlFiles) => {
-
-       if (err) return console.error("handle err", err);
-        console.log(path)
-        console.log(featureName+'.'+lineNum);
-   
-    var lineString = "\\"+moduleName+"/"+featureName+".feature:"+lineNum+"\"";
-    console.log(lineString);
-    console.log(htmlFiles);
-    var fs = require('fs');
-    
-    
-        // console.log("execTesttt111111");          
-         var testPath = "./"+htmlFiles; 
-         //console.log(testPath+"testpathhhhhh");
-       
-        var data = fs.readFileSync(testPath).toString().split("\n");
-       
-        for(i=0;i<data.length;i++){
-           if( data[i].includes("@CucumberOptions")=== true) {
-               var lineString = "\""+moduleName+"/"+featureName+".feature:"+lineNum+"\"";
-               data[i] = "@CucumberOptions(features="+"{"+lineString+"},"+"";
-           // console.log(true);
-           }
-        }
-               
-         data = data.join("\n");
-        
-        fs.writeFile(testPath,data,function(err)
-        {
-            if (err) return console.log(err);
-          //  console.log(text);
-            console.log("Replaced");
-
-            execTestRunner( path,pomFilePath)
+         db.moduleName.find({"moduleId":moduleId},function(err,doc)
+         {
+         console.log(doc);
          })
 
-   
-    
-})
-}//
+         db.featureName.find({"featureId":featureId},function(err,doc){
+         console.log(doc);
+         })
 
-var execTestRunner = function( projectName,pomFilePath){
-    //   var  pomFilePath = "uploads\\projectjava12\\Sample1";
-        const Filehound = require('filehound');
-        console.log(" i am ready for executoooooo  projectName "+projectName)
-        console.log(__dirname)
-        
-        var fs = require('fs');    
-        var requiredPath = __dirname+"\\trial.bat";         
-       // var requiredPath = "/"+projectName;
-       // var requiredPath = _dirname+"\\uploads"+"\\"+projectName+"\\trial.bat";         
-      
-        var stream = fs.createWriteStream(requiredPath);
-          
-            stream.write("@echo off\n");
-            stream.write("cd .\\"+pomFilePath+" && mvn clean install");
-            console.log(pomFilePath +  " fini   pomFilePath   ")
-         //  finalExecution( requiredPath)
-          
-        
-    
-         
-                    
-}    
-
-
-var finalExecution = function( requiredPath){
-    console.log(__dirname)
-    console.log(" final executryeriuyteriu  req "+requiredPath)
-//   var dir=  "C:\\Users\\user\\Desktop\\Latest_projects\\sample_projects\\code13Aug\\uploads\\anyname\\trial.bat" ; 
-
-//     const nodeCmd = require('node-cmd');
-//nodeCmd.run(dir, (err, data, stderr) => console.log(data));
-    //__dirname+"\\uploads\\anyname\\"+"trial.bat"
-   // "C:\\Users\\user\\Desktop\\Latest_projects\\sample_projects\\code02818demo\\uploads\\projectjava12\\trial.bat"
-  //  "C:\\Users\\user\\Desktop\\Latest_projects\\sample_projects\\code13Aug\\uploads\\anyname\\trial.bat" ; 
-  // require('child_process').exec 
-  //    //__dirname+"/trial.bat"
-  require('child_process').exec(requiredPath, (err, stdout, stderr) => {
-            if (err) throw err;
-              
-             console.log(stdout, stderr);       
-          });   
-}      
-// finalExecution()        //TestRunnerNew_TPE          
-      
+         db.projectSelection.find({"projectId":projectId},function(err,doc)
+        {
+            console.log(doc);
+        })
+     }    
      // execTest1("projectjava/Sample1/src/test/java/com/zephyr/testrunner/TestRunnerNew.java")
 
-//     var execTestRunner = function( projectName){
-//         const Filehound = require('filehound');
-//         console.log(" i am ready ")
-//         console.log(__dirname)
-        
-//         var fs = require('fs');    
-//         var requiredPath = __dirname+"\\trial.bat";         
-//         var projectNamePath = "/"+projectName;
-//     Filehound.create()
-//     .ext('xml')
-//     .match('*pom.xml*')
-//     .paths( "./uploads/"+projectNamePath)
-//     .find((err, htmlFiles) => {
-//         if (err) return console.error("handle err", err);
-//         var stream = fs.createWriteStream(requiredPath);
-//             console.log(htmlFiles);
-            
-           
-//             let latest = htmlFiles[0].slice(0,(htmlFiles[0].length - 8));
-            
-//               console.log(latest);
-//             stream.write("@echo off\n");
-//             stream.write("cd .\\"+latest+" && mvn clean install");
-//            // console.log(latest)
-//             finalExecution()
-          
-        
-//         })
-         
-                    
-// }    
-
-
-// var finalExecution = function(){
-
-//     console.log(" final executryeriuyteriu "+__dirname)
-   
-//         require('child_process').exec(__dirname+"/trial.bat", (err, stdout, stderr) => {
-//             if (err) throw err;
-              
-//             console.log(stdout, stderr);       
-//           });   
-// }      
+       
  //finalExecution()        TestRunnerNew_TPE          
 
 

@@ -7,29 +7,35 @@ import 'rxjs/add/operator/map';
 
 import { URLSearchParams } from '@angular/http';
 
-import {Post} from './post'
+import {Post} from './post';
 @Injectable()
 export class ProjectDetailServiceComponent {
 
- 
- constructor(private http:Http){
+
+ constructor(private http: Http) {
 
  }
- //response:any
-   projectDetails():Observable<Post[]>{
-   //alert("ll00")
+// response:any
+   projectDetails(): Observable<Post[]>{
+// alert("ll00")
    return this.http.get("/getModuleName")
-  .map((response:Response)=><Post[]>response.json());
-
-  }
-   moId(clickModule):Observable<Post[]>{
-   //alert("ll00")
-   return this.http.get("/getMoId"+clickModule)
-  .map((response:Response)=><Post[]>response.json());
+  .map((response: Response) => <Post[]>response.json());
 
   }
 
-childModuleDetails1(): Observable<Post[]> {
+    childModuleDetails(index): Observable<Post[]> {
+
+// alert(typeof(index)+index)
+//     let params = new URLSearchParams();
+// params.set('selectedModule', 'selectedModule');
+
+   return this.http.get('/getFeatureName' + index)
+   .map((response: Response) => <Post[]>response.json());
+   //console.log(response.json())
+
+  }
+
+  childModuleDetails1(): Observable<Post[]> {
 
     // alert(typeof(index)+index)
     //     let params = new URLSearchParams();
@@ -37,7 +43,7 @@ childModuleDetails1(): Observable<Post[]> {
 
        return this.http.get('/featureName')
        .map((response: Response) => <Post[]>response.json());
-       // console.log(response.json())
+     // console.log(response.json())
       }
 
 
@@ -51,11 +57,8 @@ childModuleDetails1(): Observable<Post[]> {
 
       priorityDetails(): Observable<Post[]> {
         // alert("ll00")
-       
            return this.http.get("/importPriority")
           .map((response: Response) => <Post[]>response.json());
 
           }
-
-  
 }
