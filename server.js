@@ -94,7 +94,7 @@ const storage = new GridFsStorage({
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       //crypto.randomBytes(16, (err, buf) => {
-
+ 
         var path = req.params.a;
         var latestPath =   path.replace(/[-]/gi, '/');
        
@@ -131,6 +131,7 @@ const storage = new GridFsStorage({
 });
 const upload = multer({ storage });
 
+<<<<<<< HEAD
 
 
 app.post("/projectSelection/:a",upload.any(),function(req, res,next) {
@@ -304,58 +305,356 @@ var trialCall123 = function() {
   
   
         })
+=======
+//var a = 1;
 
-        // resolve(fileInfo);
-        
-   // });
-      // }//)
-     })//gfs
-   // }) 
+app.post("/projectSelection/:a",upload.any(),function(req, res,next) {
+
+// var projectID=null;
+// var projectCount=null;
+
+
+ // var err = null;
+ //    try {
+         decodeURIComponent(req.path)
+ //    }
+ //    catch(e) {
+ //        err = e;
+ //    }
+
+//next()
+//  db.countInc.find({},function(err,doc){
+//   console.log(doc[0])
+//      projectID=doc[0].projectID
+//    projectCount=doc[0].pCount
+    
+// })
+
+//console.log(projectName)
+
+
+
+
+
+// let lengthCount = Number(req.body.totalLength-1);
+//   if( Number(req.body.currentLength) === Number(req.body.totalLength-1)){
+
+// var projectName = req.files[0].fieldname.split("/");
+ 
+//  setTimeout(function() {
+//  projectCount++
+//  pID=projectID+projectCount
+
+     
   
-      }
-   //  trialCall();
-//trialCall123();
-   //  setTimeout(trialCall, 1500 );
-    //  setImmediate(() => {
-    //     trialCall()
-    //     console.log(`executing immediate: `);
-    //   }, 'so immediate');
-      
+//   console.log(pID+"qwweerrrrrrrrrrrr")
+// //console.log(pID)
 
-// var j = 0;
-// var trialcall1 = function(j){
-//     j++;
-//     if(j<=10){
-//         console.log(" enter the j " +j)
-//         trialcall1(j)
-//     }else{
-//         console.log(" finish the j "+j)
-//        // trialcall1(j)
-//     }
+//     db.projectSelection.insert({"projectSelection":projectName[0],"projectId":pID})
+// },3000)
+
 
 // }
+    // let projectName = req.files[0].fieldname.split("/");
+//     var trialCall = function() {
+//         //  setTimeout(function() {
+//           //console.log("Task 311111111111113333333333333333333333333333  ");
+//          // conn.once('open', () => {
+//             // Init stream
+//             // gfs = gridfs(conn.db, mongoose.mongo);
+           
+//             //  gfs.collection('folder');
+//            var  lengthCount =1910;
+//           gfs.files.find({contentType:projectName[0]}).toArray(function (err, files) {
+      
+//             //console.log("files length  "+files.length)
+//              let lengthCheck = files.length -1 ; 
+//              var totalfiles=files.length
+//            //  console.log(files)
+//              let i = 0;
+//             // for(m =1;m<=lengthCount;m++){
+//                //console.log(" heelo 3 "+i)
+    
+//            //return new Promise((resolve, reject) => {
+      
+               
+//              //files.forEach(function(files) {
+//                 //trialcall1(0)
+//                 let m =0;
+//               var  trialcall1 =  function(m){
+//                     if(m=== lengthCheck){
+//                       //   setTimeout(function(){
 
-//trialcall2()
+                      
+//                       //   createDbs(files[m].contentType)
+                    
+//                       // },30000);
+//                        // createDbs(files[m].contentType)
+//                         //console.log(m+" no loop "+"   "+files[m].filename) 
+//                     }else{
+//                         shell.mkdir('-p',"./"+files[m].metadata)
+      
+//              const stream = gfs.createReadStream(files[m].filename);
+      
+//           var eam = fs.createWriteStream(__dirname+"/"+files[m].metadata+"/"+files[m].filename);
+      
+      
+//               stream.pipe(eam);
+//               m++;
+//               console.log(m+" no loop "+"   "+totalfiles) 
+//                                  if(m==totalfiles-1){
+//                       console.log("ouyyyyyyyyyyyyyyyyyyy")
+//          //waitfor()
+//          // db.countInc.insert({"projectID":"pID","moduleID":"mID","featureID":"fID","scriptID":"sID","pCount":1,"sCount":1,"mCount":1,"fCount":1})
+//                     var wait=parseInt(m*20);
+// setTimeout(function() {
+ 
+//   //wait function must bec files will created but data inside file not created bec
+//   //of that testscript will wont work 
+//         createDbs(files[m].contentType)
+//         res.json("Imported Succesffully")
 
 
-//
+//       },wait)
+       
+ 
+        
+//              }
+//               //console.log(m+" exectutr loop "+"   "+files[m].filename) 
+//                         trialcall1(m)
+//                     }
+//                 }  
+//                 trialcall1(0)
+             
+      
+      
+//             })
+    
+//             // resolve(fileInfo);
+            
+//        // });
+//           // }//)
+//         // })//gfs
+//        // }) 
+      
+//           }
+    //  console.log("iam project"+ projectName[0]);
+    //trialCall();
+
+//}   
+
+res.json([]);
+
+    
+});
+// var ath=__dirname+"/uploads/odule"
+
+// if(fs.existsSync(ath)){
+//  console.log("llllll") 
+// }
+// else{
+//  console.log("fffffffllllll")  
+// }
 
 
+//  app.get('/createFolder:data',function(req,res){
+//    console.log("uiiiiiiiiiiiiiii"+req.params.data)
+// var projectName=req.params.data;
+// var onlyOnce=1
+// if(  onlyOnce===1 ){
 
+//     var trialCall = function() {
+      
+//            var  lengthCount =2910;
+//           gfs.files.find({contentType:projectName}).toArray(function (err, files) {
+      
+        
+//              let lengthCheck = files.length -1 ; 
+//              var totalfiles=files.length
+       
+//              let i = 0;
+          
+//                 let m =0;
+//               var  trialcall1 =  function(m){
+//                     if(m=== lengthCheck){
+                  
+//                     }else{
+//                      var checkPath= __dirname+"/"+files[m].metadata+"/"+files[m].filename
+//                       console.log(checkPath)
+//                       if(!fs.existsSync(checkPath)){
+//                         console.log("juuuuuuuuueee")
+//                         shell.mkdir('-p',"./"+files[m].metadata)
+                      
+      
+//              const stream = gfs.createReadStream(files[m].filename);
+      
+//           var eam = fs.createWriteStream(__dirname+"/"+files[m].metadata+"/"+files[m].filename);
+      
+      
+//               stream.pipe(eam);
+//             }
+//               m++;
+//               console.log(m+" no loop "+"   "+totalfiles) 
+//                                  if(m==totalfiles-1){
+//                       console.log("ouyyyyyyyyyyyyyyyyyyy")
+//          //waitfor()
+//                     var wait=parseInt(m*20);
+//                     var messageWait=wait*15;
+// setTimeout(function() {
+//   //wait function must bec files will created but data inside file not created bec
+//   //of that testscript will wont work 
+//         createDbs(files[m].contentType)
+        
+
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
+
+//       },wait)
+//  setTimeout(function() {
+       
+//  res.json("Succesffully CreateDbs")
+//  },messageWait)
+        
+//              }
+//               //console.log(m+" exectutr loop "+"   "+files[m].filename) 
+//                         trialcall1(m)
+//                     }
+//                 }  
+//                 trialcall1(0)
+             
+      
+      
+//             })
+    
+//             // resolve(fileInfo);
+            
+//        // });
+//           // }//)
+//         // })//gfs
+//        // }) 
+      
+//           }
+//     //  console.log("iam project"+ projectName[0]);
+//     trialCall();
+
+// }   
+// else{
+// res.json([]);
+// }
+
+//  //res.json("Please Wait File Is Synchronizing");
+
+//  })///open
+
+ app.get('/createFolder:data',function(req,res){
+   console.log("uiiiiiiiiiiiiiii"+req.params.data)
+var projectName=req.params.data;
+var onlyOnce=1
+if(  onlyOnce===1 ){
+
+    var trialCall = function() {
+      
+           var  lengthCount =2910;
+          gfs.files.find({contentType:projectName}).toArray(function (err, files) {
+      
+        
+             let lengthCheck = files.length -1 ; 
+             var totalfiles=files.length
+       
+             let i = 0;
+          
+                let m =0;
+              var  trialcall1 =  function(m){
+                    if(m=== lengthCheck){
+                  
+                    }else{
+                     var checkPath= __dirname+"/"+files[m].metadata+"/"+files[m].filename
+                      console.log(checkPath)
+                      if(!fs.existsSync(checkPath)){
+                        console.log("juuuuuuuuueee")
+                        shell.mkdir('-p',"./"+files[m].metadata)
+                      
+      
+             const stream = gfs.createReadStream(files[m].filename);
+      
+          var eam = fs.createWriteStream(__dirname+"/"+files[m].metadata+"/"+files[m].filename);
+      
+      
+              stream.pipe(eam);
+            }
+              m++;
+              console.log(m+" no loop "+"   "+totalfiles) 
+                                 if(m==totalfiles-1){
+                      console.log("ouyyyyyyyyyyyyyyyyyyy")
+         //waitfor()
+                    var wait=parseInt(m*20);
+                    var messageWait=wait*15;
+setTimeout(function() {
+  //wait function must bec files will created but data inside file not created bec
+  //of that testscript will wont work 
+        createDbs(files[m].contentType)
+        
+
+
+      },wait)
+ setTimeout(function() {
+       
+ res.json("Succesffully CreateDbs")
+ },messageWait)
+        
+             }
+              //console.log(m+" exectutr loop "+"   "+files[m].filename) 
+                        trialcall1(m)
+                    }
+                }  
+                trialcall1(0)
+             
+      
+      
+            })
+    
+            // resolve(fileInfo);
+            
+       // });
+          // }//)
+        // })//gfs
+       // }) 
+      
+          }
+    //  console.log("iam project"+ projectName[0]);
+    trialCall();
+
+<<<<<<< HEAD
 var  call = function(metadata,filename,i){
     //console.log(" i "+i)
     shell.mkdir('-p',"./"+metadata)
+=======
+}   
+else{
+res.json([]);
+}
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
 
-    const stream = gfs.createReadStream(filename);
+ //res.json("Please Wait File Is Synchronizing");
 
- var eam = fs.createWriteStream(__dirname+"/"+metadata+"/"+filename);
+ })
+  
+//const Filehound = require('filehound');
+    
+
+// Filehound.create()
+//   //.ext('')
+//   .match('module')
+//   .paths("./uploads"+"/"+'module')
+//   .find((err, htmlFiles) => {
+// console.log(htmlFiles)
+//  htmlFiles.forEach(function(file) {
+//    console.log(file) 
+//   })
+//   })
 
 
-     stream.pipe(eam);
-  }
-//trial ends
 
-
+<<<<<<< HEAD
    app.post("/selectedProjectName",function(req, res) {
 //console.log(req.body.projectName+"ooooooooooooooooo")
 setTimeout(function() {
@@ -363,13 +662,52 @@ setTimeout(function() {
 },30000)
    })
   
+=======
+   
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
 
+ 
 // creating file names and module and projects
+var aCount = null;
+  var smId=null;
+   var sfID=null;
+   var ssID=null;
+   //var pIDSyn=null;
+    var proID=null;
+    var  pCount=null;
+     var  mCount=null;
+      var  fCount=null;
+       var  sCount=null;
+    var pID=null;
+var moduleCount = 1;
 
 var moduleCount = 1;
 var createDbs = function(folderName) {
+<<<<<<< HEAD
     moduleCount = 1;
+=======
+ // db.projectSelection.find({}).sort({_id:-1},function(err,doc){
+ // //console.log(doc[0])
+ //        pID=doc[0].projectID
+         
+ //      })
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
    
+   db.countInc.find({},function(err,doc){
+  
+    proID=doc[0].projectID
+   pCount=doc[0].pCount
+     mCount=doc[0].mCount
+       fCount=doc[0].fCount
+         sCount=doc[0].sCount
+   smId=doc[0].moduleID
+      sfID=doc[0].featureID
+        ssID=doc[0].scriptID
+
+//console.log(pID+"uiiiii")
+   
+   })
+    moduleCount = 1;
     const Filehound = require('filehound');
     
 
@@ -380,14 +718,38 @@ Filehound.create()
   .find((err, htmlFiles) => {
       let start = 1;
     if (err) return console.error("handle err", err);
+<<<<<<< HEAD
  var cc=0;
  var ff=0;
  var pI=1;
 db.projectSelection.insert({"projectSelection":folderName,"projectId":pI})
  //console.log("filewwwwwwwwwwwwwwwwwwwwwwwww ")
 
+=======
+ //var cc=0;
+ var incFileID=0;
 
+
+  setTimeout(function() {
+ pCount++
+ pID=proID+pCount
+
+     
+  
+  console.log(pID+"qwweerrrrrrrrrrrr")
+//console.log(pID)
+
+    db.projectSelection.insert({"projectSelection":folderName,"projectId":pID})
+},3000)
+     //passingID(pID)
+ // });
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
+
+
+        
+setTimeout(function() {
     htmlFiles.forEach(function(file) {
+<<<<<<< HEAD
    // ff++
       
     let data_Array = file.split("\\");
@@ -398,7 +760,27 @@ var rr=ff++
 
 
        createModuleAndFeature(file,data_Array,dd,rr,pI);
+=======
+console.log(pID+"ppp")
+   // ff++
+
+    // console.log( sID)
+ 
+    
+    let data_Array = file.split("\\");
+     let mName = file.split("\\",(data_Array.length-1)).pop()
+
+
+
+       createModuleAndFeature(file,data_Array,pID);
+   
+
+
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
    });
+
+ },9000)
+
  
   });
 }//createDbs ()
@@ -411,6 +793,7 @@ var rr=ff++
  
  //   }
 //
+<<<<<<< HEAD
 let createModuleAndFeature = function(data,data_Array,dd,rr,pI){
     // for module creation 
    //var cc=0;
@@ -441,6 +824,61 @@ let createModuleAndFeature = function(data,data_Array,dd,rr,pI){
 let createTestScript = function(file,featureName,rr,dd,pI){
     //console.log( typeof(file) + file);
     let count =1;
+=======
+var check=[]
+let createModuleAndFeature = function(data,data_Array,pID){
+  mCount++
+fCount++
+ var mId=smId+mCount
+
+// sCount++
+
+   
+    var fID=sfID+fCount
+    //var sID=ssID+sCount
+     //console.log(mId) 
+   // console.log(aCount) 
+   //console.log( fID)
+    // for module creation 
+   //var cc=0;
+   //console.log(dd)
+ // console.log("eeeeeeeeeeeeeeeeee  ");
+   //console.log("wwwwwwwwwwww  "+data_Array);
+   let modulesName = data.split("\\",(data_Array.length-1)).pop() ;
+   //let anotherModuleName = data.split("\\",(data_Array.length-1)).pop() ;
+    console.log("modulesNameeeeeeeeeeeeeeeeee  "+modulesName);
+   
+    // console.log(moduleCount+"kkkjjjjj")
+// if(modulesName){
+
+// }
+ 
+
+
+//console.log(check.includes(modulesName))
+if(check.includes(modulesName)===false){
+ 
+  db.moduleName.insert({"moduleName":modulesName,"moduleId":mId,"projectId":pID})
+
+check.push(modulesName)
+}
+
+   // for feature creation 
+    let featureNames = data.split("\\",(data_Array.length)).pop() ;
+    let featureNameWitoutExt = featureNames.replace(".feature", "");
+    db.featureName.insert({"featureName":featureNameWitoutExt,"featureId":fID,"moduleId":mId,"projectId":pID})
+    createTestScript( data,featureNameWitoutExt,fID,mId,pID)
+
+
+}
+
+
+  var forUpdate=1;
+let createTestScript = function(file,featureName,fID,mId,pID){
+//console.log( "qqqqqqqqqqqqqqqqqq");
+    let count =1;
+  
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
     //console.log(file);
     var LineByLineReader = require('line-by-line');
    // lr = new LineByLineReader("./uploads/projectjavatriall756/Sample1/Features/abc.feature")
@@ -453,6 +891,7 @@ let createTestScript = function(file,featureName,rr,dd,pI){
     });
     
     lr.on('line', function (line) {
+<<<<<<< HEAD
         //console.log(" line line rr rr rr ")
         //console.log(count +" "+line)
         if(line.includes("Scenario") == true){
@@ -460,6 +899,19 @@ let createTestScript = function(file,featureName,rr,dd,pI){
             var res = line.substr(line.indexOf(":")+1);
             db.testScript.insert({"scriptName":res,"featureId":rr,"moduleId":dd,"scriptId":count,"lineNum":count,"projectId":pI})
     
+=======
+      //console.log(line.length+"Opqqqqq")
+        //console.log(" line line rr rr rr ")
+        //console.log(count +" "+line)
+        if(line.includes("Scenario") == true){
+sCount++
+var sID=ssID+sCount
+          //console.log("oooooooooooooooooooooooooooooooooooooo")
+            var res = line.substr(line.indexOf(":")+1);
+            //var scId=res+count
+            db.testScript.insert({"scriptName":res,"featureId":fID,"moduleId":mId,"scriptId":sID,"lineNum":count,"projectId":pID})
+  
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
          // console.log(count+"   Scenario  true ")
           count++;
     
@@ -472,7 +924,57 @@ let createTestScript = function(file,featureName,rr,dd,pI){
     });
     
     lr.on('end', function () {
-        console.log("  end end  Scenario  true ")
+     
+      // if(forUpdate===1){
+      //   console.log("uuuuuuuuuuuuuuuu") 
+      
+db.testScript.find({},function(err,doc){
+    //console.log(doc[0])
+//  var uSCount=doc[0].scriptId
+//            var sSPCount=uSCount.split("sID")
+// var fSCount=parseInt(sSPCount[1])
+var fSCount=doc.length
+     //var id=doc[0]._id
+ db.featureName.find({},function(err,doc){    
+//     var uPCount=doc[0].projectId
+//     console.log(uPCount+"ppppppppppppp")
+//     var splitUPCount=uPCount.split("pID")
+// var finalPCount=parseInt(splitUPCount[1])
+  var fFCount= doc.length  
+
+ db.moduleName.find({},function(err,doc){  
+    //console.log(typeof(finalPCount)+finalPCount)
+//      var uMCount=doc[0].moduleId
+//          var sMPCount=uMCount.split("mID")
+// var fMCount=parseInt(sMPCount[1])
+var fMCount=doc.length
+ db.projectSelection.find({},function(err,doc){  
+  var finalPCount=doc.length
+//       var uFCount=doc[0].featureId
+//           var sFPCount=uFCount.split("fID")
+// var fFCount=parseInt(sFPCount[1])
+      
+   
+
+db.countInc.find({},function(err,doc){
+ // console.log(doc[0]._id)
+  var id=doc[0]._id
+   db.countInc.update({_id : mongojs.ObjectId(id)},{$set:{"sCount":fSCount,
+    "pCount":finalPCount,"mCount":fMCount,"fCount":fFCount}})
+ })
+      //console.log(doc.length)
+    })//projectSelection
+    })//moduleName
+    })//featureName     
+      })//testScript
+
+       //console.log(cou)
+  
+   //      forUpdate++
+   // }
+
+
+      console.log("  end end  Scenario  true ") 
         // All lines are read, file is closed now.
     });
 }
@@ -481,11 +983,9 @@ let createTestScript = function(file,featureName,rr,dd,pI){
 // var moduleName = "feature";
 // createTestScript(file,featureName,moduleName)
 
-const port=5666;
-app.listen(port,function() {
-  console.log("server running on port"+port);
-  // body...
-});
+
+
+ 
 
 
 app.get('/mobileAppsDetails',function(req,res){
@@ -513,6 +1013,12 @@ app.get('/mobileAppsDetails',function(req,res){
 
 
 
+app.get('/selectionProject',function(req,res){
+    db.projectSelection.find({},function(err,doc){
+        res.json(doc);
+       console.log(doc) ;
+    })
+  })
 app.get('/selectionProject',function(req,res){
     db.projectSelection.find({},function(err,doc){
         res.json(doc);
@@ -622,6 +1128,7 @@ app.get('/getTestScriptDetails:ss1',function(req,res){
 })
 //})
 
+<<<<<<< HEAD
     app.post('/testScript',function(req,res){
 
     console.log("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll")
@@ -661,6 +1168,19 @@ var dbsNames = function(moduleId,featureId,lineNum,projectId){
 
 var checkxml = function(projectFolder,featureName,lineNum,moduleName){
        
+=======
+
+app.post('/testScript:ss',function(req,res){
+    console.log("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll")
+    var data = req.params.ss;
+    console.log(data);
+    var data_Array = data.split(",");
+    var lineNum = data_Array[0];
+    var featureName = data_Array[1];
+    var projectId = data_Array[2];
+    var projectNamePath = "/"+projectId;
+    console.log(featureName+'.'+lineNum+'.'+projectNamePath);
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
         const Filehound = require('filehound');
         Filehound.create()
     .ext('xml')
@@ -717,6 +1237,7 @@ var testRunnerCall = function(runnerName,path,pomFilePath,featureName,lineNum,mo
     const Filehound = require('filehound');
     Filehound.create()
   .ext('java')
+<<<<<<< HEAD
   .match(runnerName)  //  .match('*TestRunnerNew.java*')
   .paths("./uploads/"+path)
   
@@ -724,12 +1245,21 @@ var testRunnerCall = function(runnerName,path,pomFilePath,featureName,lineNum,mo
 
        if (err) return console.error("handle err", err);
         console.log(path)
+=======
+  .match('*TestRunnerNew.java*')  //  .match('*TestRunnerNew.java*')
+  .paths("./uploads/"+projectNamePath)
+  
+  .find((err, htmlFiles) => {
+    if (err) return console.error("handle err", err);
+        console.log(projectNamePath)
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
         console.log(featureName+'.'+lineNum);
    
     var lineString = "\\"+moduleName+"/"+featureName+".feature:"+lineNum+"\"";
     console.log(lineString);
     console.log(htmlFiles);
     var fs = require('fs');
+<<<<<<< HEAD
     
     
         // console.log("execTesttt111111");          
@@ -753,10 +1283,41 @@ var testRunnerCall = function(runnerName,path,pomFilePath,featureName,lineNum,mo
             if (err) return console.log(err);
           //  console.log(text);
             console.log("Replaced");
+=======
+ var stream = fs.createWriteStream(htmlFiles[0]);
+ stream.once('open', function(fd) {
+   stream.write("package com.zephyr.testrunner;\n\n");
+   stream.write("import org.junit.runner.RunWith;\n\n");
+   stream.write("import cucumber.api.CucumberOptions;\n");
+   stream.write("import cucumber.api.junit.Cucumber;\n");
+   stream.write("import cucumber.api.testng.AbstractTestNGCucumberTests;\n\n");
+   stream.write("@RunWith(Cucumber.class)\n");
+
+   stream.write("@CucumberOptions(features="+"{"+lineString+"},"+"\n\n");
+
+   stream.write("//tags={"+"@Import1,@Export11,@Map1,@search1,@Edit1,@DND1"+"},\n\n");
+   stream.write("glue={\"com.zephyr.stepdefinition\"},\n");
+   stream.write("plugin = {\"html:target/cucumber-html-report\",\n");
+   stream.write("\"pretty:target/cucumber-pretty.txt\",\n")
+   stream.write("\"json:target/cucumber6.json\"},\n")
+   stream.write("monochrome = false)\n\n")
+   stream.write("public class TestRunnerNew extends AbstractTestNGCucumberTests\n")
+   stream.write("{\n")
+   stream.write("}\n")
+   stream.end();
+   console.log("Replaced");
+   execTestRunner( projectNamePath)
+ });
+ });
+       
+ 
+    
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
 
             execTestRunner( path,pomFilePath)
          })
 
+<<<<<<< HEAD
    
     
 })
@@ -766,10 +1327,16 @@ var execTestRunner = function( projectName,pomFilePath){
     //   var  pomFilePath = "uploads\\projectjava12\\Sample1";
         const Filehound = require('filehound');
         console.log(" i am ready for executoooooo  projectName "+projectName)
+=======
+    var execTestRunner = function( projectName){
+        const Filehound = require('filehound');
+        console.log(" i am ready ")
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
         console.log(__dirname)
         
         var fs = require('fs');    
         var requiredPath = __dirname+"\\trial.bat";         
+<<<<<<< HEAD
        // var requiredPath = "/"+projectName;
        // var requiredPath = _dirname+"\\uploads"+"\\"+projectName+"\\trial.bat";         
       
@@ -782,11 +1349,35 @@ var execTestRunner = function( projectName,pomFilePath){
           
         
     
+=======
+        var projectNamePath = "/"+projectName;
+    Filehound.create()
+    .ext('xml')
+    .match('*pom.xml*')
+    .paths( "./uploads/"+projectNamePath)
+    .find((err, htmlFiles) => {
+        if (err) return console.error("handle err", err);
+        var stream = fs.createWriteStream(requiredPath);
+            console.log(htmlFiles);
+            
+           
+            let latest = htmlFiles[0].slice(0,(htmlFiles[0].length - 8));
+            
+              console.log(latest);
+            stream.write("@echo off\n");
+            stream.write("cd .\\"+latest+" && mvn clean install");
+            console.log(latest)
+            finalExecution()
+          
+        
+        })
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
          
                     
 }    
 
 
+<<<<<<< HEAD
 var finalExecution = function( requiredPath){
     console.log(__dirname)
     console.log(" final executryeriuyteriu  req "+requiredPath)
@@ -852,6 +1443,18 @@ var finalExecution = function( requiredPath){
 //             console.log(stdout, stderr);       
 //           });   
 // }      
+=======
+var finalExecution = function(){
+
+    console.log(" final executryeriuyteriu "+__dirname)
+   
+        require('child_process').exec(__dirname+"/trial.bat", (err, stdout, stderr) => {
+            if (err) throw err;
+              
+            console.log(stdout, stderr);       
+          });   
+}      
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
  //finalExecution()        TestRunnerNew_TPE          
 
 
@@ -885,7 +1488,7 @@ app.get('/loginDetails',function(req,res){
      })
  })
  app.get('/selectionProject',function(req,res){
-      
+    console.log("qqqqqqqq")  
    
      db.projectSelection.find({},function(err,doc){        
          res.json(doc);
@@ -918,7 +1521,7 @@ app.get('/loginDetails',function(req,res){
  // })
  app.get('/getModuleName',function(req,res){
       
-      
+      //console.log("gggggggggggggggggggg")
    
      db.moduleName.find({},function(err,doc){        
          res.json(doc);
@@ -1004,6 +1607,7 @@ app.get('/loginDetails',function(req,res){
  })
  app.post('/postModuleName',function(req,res)
  {
+  //console.log("wwwwwwwwwwwwwww")
     //var moduleName=req.params.moduleName;
     
      //var moduleName = str_array[1];
@@ -1052,8 +1656,18 @@ app.get('/loginDetails',function(req,res){
        })
  
  })
+<<<<<<< HEAD
  //require('./server/serverTestExecution')(app)
+=======
+ //require('./server/serverTestExecution')(app);
+// module.exports = app;
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
  app.get('*',(req, res)=> {
  
    res.sendFile(path.join(__dirname,'dist/index.html'));
  });
+ const port=1666;
+app.listen(port,function() {
+  console.log("server running on port"+port);
+  // body...
+});

@@ -24,14 +24,21 @@ export class TestExecutionServiceComponent {
   }
 
  
+<<<<<<< HEAD
    testScriptDetails(ss):Observable<Post[]>{
   //alert("ll00")
    return this.http.get("/getTestScriptDetails"+ss)
+=======
+   testScriptDetails():Observable<Post[]>{
+  //alert("ll00")
+   return this.http.get("/getTestScriptDetails")
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
    
   .map((response:Response)=><Post[]>response.json());
   
 
   } 
+<<<<<<< HEAD
 
 
 
@@ -50,6 +57,14 @@ export class TestExecutionServiceComponent {
            return this.http.get("/testScript")
           .map((response: Response) => <Post[]>response.json());
       }
+=======
+  
+      // showDetails(): Observable<Post[]>{
+      //      alert("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv")
+      //      return this.http.get("/testScript")
+      //     .map((response: Response) => <Post[]>response.json());
+      // }
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
 
   projectDetails(): Observable<Post[]>{
     // alert("ll00")

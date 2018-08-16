@@ -38,8 +38,17 @@ testExecution:boolean;
 displayModule:boolean;
 displayFeature:boolean;
 displayImport:boolean;
+<<<<<<< HEAD
 //selectedModule:any;
 
+=======
+isValid:string;
+importMessage:any;
+valid:boolean
+
+//selectedModule:any;
+
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
     constructor(private router: Router,private route:ActivatedRoute,private module:ProjectDetailServiceComponent) {
     this.show = false;
     this.mo=false;
@@ -55,9 +64,16 @@ displayImport:boolean;
       ngOnInit(){
 //var index=0;
 
+<<<<<<< HEAD
             // let dataFromProjectSelectionDropdown=sessionStorage.getItem('key');
             // this.projectName=dataFromProjectSelectionDropdown;
            // this.module.projectDetails().subscribe(moduleData =>this.moduleName=moduleData);
+=======
+            let dataFromProjectSelectionDropdown=sessionStorage.getItem('key');
+            this.projectName=dataFromProjectSelectionDropdown;
+            this.module.projectDetails().subscribe(moduleData =>this.moduleName=moduleData);
+      
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
   // this.module.childModuleDetails(index)
   //   .subscribe(moduleData =>{this.oduleChild=moduleData;console.log(this.oduleChild) });
   //     //console.log(this.moduleChild)
@@ -110,20 +126,61 @@ this.module.childModuleDetails(index)
  
         changeShowStatus(){
 //alert( this.show)
+//this.isValid="isValid";
+ if( this.valid!=true){
            this.show = true;
            this.testExecution=false;
            this.mo=false;
+<<<<<<< HEAD
            this.execute=false; 
+=======
+           this.execute=false;
+            } 
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
  
         }
     
-        showTestExecution(){
+        showTestExecution(folderName){
+          this.valid=true;
+          this.module.createFolder(folderName).subscribe(moduleData =>{this.importMessage=moduleData;this.importData(this.importMessage)});
+        // alert(ss)
+        //alert(folderName+"ll")
+          //this.module.createFolder(folderName)
 //alert("2")
+<<<<<<< HEAD
    this.show = false;
    this.testExecution=true;
    this.mo=false;
    this.execute=false;
+=======
+console.log(this.importMessage+"oppppu")
+if(this.importMessage!="Succesffully CreateDbs"){
+ this.importMessage="Please Wait While Files Are Synchronizing"
+
+
+}
+// else{
+//   this.show = false;
+//    this.testExecution=true;
+//    this.mo=false;
+//    this.execute=false;
+//  // this.importMessage="Please Wait While Files Are Synchronizing "
+// }
+
+
+   
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
         }
+        importData(data){
+//console.log(data)
+          this.importMessage=data
+           this.show = false;
+   this.testExecution=true;
+   this.mo=false;
+   this.execute=false;
+   this.valid=false;
+
+}
 
         goCreateModule(){
           //var displayModule:string
@@ -153,9 +210,15 @@ this.module.childModuleDetails(index)
         }
 
         execution(){
+<<<<<<< HEAD
         this.execute=true;
            this.mo=false;
            this.show=false;
+=======
+          this.execute=true;
+          this.mo=false;
+          this.show=false;
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
         }
 
         connect(){

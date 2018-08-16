@@ -30,7 +30,11 @@
             <span>
                 Project Name : 
                 <select [(ngModel)]="projectId"  >
+<<<<<<< HEAD
                     <option *ngFor = "let data of datas" value="{{data.projectId}}">{{data.projectSelection}}
+=======
+                    <option *ngFor = "let data of datas" value="{{data.projectSelection}}">{{data.projectSelection}}
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
                         
                     </option>
                 </select>
@@ -47,8 +51,13 @@
             </span>
             <span class="span1">
                 Feature :
+<<<<<<< HEAD
                 <select style="width: 200px;height: 30px"  [(ngModel)]="featureId"  >
                      <option *ngFor = "let var2_featureName of featureNames" value="{{var2_featureName.featureId}}">{{var2_featureName.featureName}}</option>
+=======
+                <select style="width: 200px;height: 30px"  [(ngModel)]="featureName"  >
+                     <option *ngFor = "let var2_featureName of featureNames" value="{{var2_featureName.featureName}}">{{var2_featureName.featureName}}</option>
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
                     
                 </select>
             </span>        
@@ -58,8 +67,13 @@
     
         <br>
     
+<<<<<<< HEAD
         <button style="margin-left: 410px;margin-top: 10px" (click)=search(projectId,moduleId,featureId)>Search</button>
         <button (click)=run(moduleId,featureId,lineNum,projectId)>Run</button>
+=======
+        <button style="margin-left: 410px;margin-top: 10px" (click)=search(moduleId,featureName)>Search</button>
+        <button (click)=run(featureName,projectId)>Run</button>
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
     
         <br><br>
     
@@ -68,6 +82,7 @@
     <div class="container">
             <table class="table table-condensed" style="width:100%">
               <thead style="width:100%">
+<<<<<<< HEAD
                 <tr *ngIf="srch==true">
                         <th></th>
                         <th style="width: 110px;">Module Name</th>
@@ -87,9 +102,33 @@
                             <td *ngIf="srch==true">{{test.scriptId}}</td>
                             <td *ngIf="srch==true">{{test.lineNum}}</td>
                             <td *ngIf="srch==true">{{test.projectSelection}}</td>
+=======
+                <tr *ngIf="srch==true" >
+                        <th></th>
+                        <th style="width: 110px;">Feature Id</th>
+                        <th style="width: 110px;">Module Id </th>
+                        <th style="width: 500px;">Script Name</th>
+                        <th>Script Id</th>
+                        <th>Line Num</th>
+                </tr>
+              </thead>
+              <tbody>
+                    <tr  *ngFor = "let test of testScriptsData " >   
+                            <td *ngIf="srch==true" ><input type="checkbox" (click)=row(test)></td>             
+                            <td *ngIf="srch==true" style="width: 110px;">{{test.moduleId}}</td>
+                            <td *ngIf="srch==true" style="width: 110px;">{{test.featureId}}</td>
+                            <td *ngIf="srch==true" style="width: 538px;">{{test.scriptName}}</td>
+                            <td *ngIf="srch==true">{{test.scriptId}}</td>
+                            <td *ngIf="srch==true">{{test.lineNum}}</td>
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
                         </tr>               
                </tbody>
             </table>
           </div>
+<<<<<<< HEAD
  </body>
+=======
+      
+    </body>
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
     

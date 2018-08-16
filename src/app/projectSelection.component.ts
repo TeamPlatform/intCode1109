@@ -30,7 +30,15 @@ export class SelectionComponent implements OnInit, OnChanges {
    projectSelectionData=[];
    currentFile:any;
  projectName:string;
+<<<<<<< HEAD
  Folder:any
+=======
+ Folder:any;
+ sucess:any;
+ message:any;
+ pomFile:any;
+ testFile:any;
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
    constructor(private ata:ProjectSelectionServiceComponent,private router: Router,private http:Http){
 	this.theFiles= [];
 
@@ -72,17 +80,35 @@ export class SelectionComponent implements OnInit, OnChanges {
  var files = e.target.files;
      var path = files[0].webkitRelativePath;
     var Folder = path.split("/");
+<<<<<<< HEAD
+=======
+    console
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
     this.projectName=Folder[0]
     //alert(Folder[0]);
    //this.createDbs(projectName)
     for (var i = 0; i <totalLength ; i++) {
+      //console.log("pqqqqqqqqqwwww")
      this.theFiles =<Array<File>>e.target.files;
 //console.log(this.theFiles)
 
     this.relativePath = this.theFiles[i].webkitRelativePath;
     this.currentFile = this.theFiles[i];
+<<<<<<< HEAD
 
    // console.log(this.relativePath)
+=======
+   console.log(this.relativePath)
+  // console.log(this.currentFile )
+    var checkPom=this.relativePath.split("/").pop();
+    //console.log(ddd)
+  if (checkPom=="pom.xml" ){
+   this.pomFile="present"
+    }
+    if (checkPom=="TestRunnerNew.java" ){
+   this.testFile="present"
+    }
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
     //this.upload(this.relativePath,this.theFiles[i] )
    // console.log(this.relativePath)
   //var str = "public/inline.js";
@@ -90,12 +116,18 @@ export class SelectionComponent implements OnInit, OnChanges {
       var a =   this.relativePath.replace(/[/]/gi, '-');
      // console.log(a)
       //var b = 10;
-        this.makeFileRequest("/projectSelection/"+a, [],this.theFiles,i,totalLength ).then((result) => {
+  this.makeFileRequest("/projectSelection/"+a, [],this.theFiles,i,totalLength ).then((result) => {
 
-
+console.log(typeof(result)+result)
 
      // this.makeFileRequest("/projectSelection", [],sendFile).then((result) => {
-           // console.log(result);
+//             if (result=="Imported Succesffully"){
+//               //console.log("kkkyyyyyy")
+//             this.message=result
+// }
+// else{
+//   this.message="Please Wait"
+// }
         }, 
         (error) => {
             console.error("error");
@@ -104,9 +136,18 @@ export class SelectionComponent implements OnInit, OnChanges {
    
 }
 
+  
+if( this.pomFile!="present" ){
+  alert("pom.xml is not present")
+}
+if( this.testFile!="TestRunnerNew.java"){
+  alert("TestRunnerNew.java is not present")
+}
+
    
 }
 createDbs(){
+<<<<<<< HEAD
 console.log( this.projectName+"pppppppppp")
   let urlSearchParams = new URLSearchParams();
 urlSearchParams.append('projectName', this.projectName);
@@ -118,6 +159,19 @@ urlSearchParams.append('projectName', this.projectName);
     });
 
 
+=======
+//console.log( this.projectName+"pppppppppp")
+  let urlSearchParams = new URLSearchParams();
+urlSearchParams.append('projectName', this.projectName);
+
+
+    return this.http.post('/selectedProjectName', urlSearchParams)
+      .subscribe(data => {
+      console.log(data);
+    });
+
+
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
 
 
 }
@@ -139,12 +193,28 @@ urlSearchParams.append('projectName', this.projectName);
 //             console.error("error");
 //         });
 //     }
+<<<<<<< HEAD
         makeFileRequest(url: string, params: Array<string>, files: Array<File>,i:number,totalLength :number) {
+=======
+ makeFileRequest(url: string, params: Array<string>, files: Array<File>,i:number,totalLength :number) {
+>>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
             //console.log(' i '+i);
             // console.log("url  "+url)
             // console.log("urlparams  "+params)
             // console.log(files)
-            console.log(files.length)
+           //  console.log(files.length)
+           // var beforeWait=files.length *45;
+
+     //console.log("99999999"+typeof(beforeWait)+beforeWait)
+   
+ // this.sucess=setTimeout(()=> {
+       
+   
+ //      this.message="Create Dbs"
+
+
+ //      },beforeWait)
+
             // console.log(files[i].name)
             // console.log(files[i])
         return new Promise((resolve, reject) => {

@@ -7,7 +7,7 @@
 
  <h1 > Project Detail </h1>
 
-<h3 style="font-size: 25px"> ProjectName:{{projectName}} </h3>
+<h3 style="font-size: 25px" > ProjectName:{{projectName}} </h3>
 
 
 
@@ -47,14 +47,14 @@
 <div class="a" >
  <table style="height: 444px">
      <tr style="position: absolute;" >
-       <th (click)="changeShowStatus()" class="active" style="width: 2000px;text-align: center;font-size: 20px;" [style.background-color] = "show==true ? 'green' : 'cyan'"> Test Planning</th>
+       <th (click)="changeShowStatus()"  class="active" style="width: 2000px;text-align: center;font-size: 20px;" [style.background-color] = "show==true ? 'green' : 'cyan'"  > Test Planning</th>
 
      
-     <th style="width: 1828px;text-align: center;font-size: 20px;;" (click)="showTestExecution()" class="active" [style.background-color] = "testExecution==true ? 'green' : 'cyan'" >Test Execution</th>
+     <th style="width: 1828px;text-align: center;font-size: 20px;;" (click)="showTestExecution(projectName)" class="active" [style.background-color] = "testExecution==true ? 'green' : 'cyan'" >Test Execution</th>
 
 
 
-       <th style="text-align: center;font-size: 20px">Report</th>
+       <th style="text-align: center;font-size: 20px" >Report</th>
         </tr>
         <td *ngIf="show==true" >
           <div style="margin-top: -303px;position: absolute;">
@@ -69,13 +69,15 @@
               <th (click)="goImport()" style="text-align: center;font-size: 15px" [style.background-color] = "displayImport==true ? 'lightblue' : 'cyan'">ImportScript</th>
               
             </table>
+
             <app-module *ngIf="displayModule==true"></app-module>
         <app-feature *ngIf="displayFeature==true"></app-feature>
         <app-import *ngIf="displayImport==true"></app-import>
           </div>
+          
+      
         </td>
-        
-        
+    
      
      
      
@@ -95,19 +97,22 @@
 
  
 
-  
+ 
 
  <td *ngIf="mo==true"><app-cap></app-cap></td>
  <td *ngIf="execute==true"><app-test></app-test> </td>
 </tr>
 
-
+ 
 <!-- <tr> -->
  <!--  <td> </td>
   <td> </td> -->
  <!--  <td>  <br><br> <br><br><br><button style="background-color:green;">save </button></td>
  </tr> -->
 </div>
+<td *ngIf="valid==true" style="text-align:center;font-size: 15px">
+         {{importMessage}}
+     </td>
    </table>
   
 
