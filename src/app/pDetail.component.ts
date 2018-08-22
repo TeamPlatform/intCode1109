@@ -110,36 +110,17 @@ ngOnDestroy(){
         changeShowStatus(){
 //alert( this.show)
 //this.isValid="isValid";
-<<<<<<< HEAD
-  // if( this.valid!=true){
-=======
   if( this.valid!=true){
->>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
            this.show = true;
            this.testExecution=false;
            this.mo=false;
            this.execute=false;
-<<<<<<< HEAD
-           // } 
-=======
             } 
->>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
  
         }
     
         showTestExecution(folderName){
           this.valid=true;
-<<<<<<< HEAD
-         // this.module.createFolder(folderName).subscribe(moduleData =>{this.importMessage=moduleData;this.importData(this.importMessage)});
-
-console.log(this.importMessage+"oppppu")
-// if(this.importMessage!="Succesffully CreateDbs"){
-//  this.importMessage="Please Wait While Files Are Synchronizing"
-
-
-// }
-// else{
-=======
           this.module.createFolder(folderName).subscribe(moduleData =>{this.importMessage=moduleData;this.importData(this.importMessage);console.log(this.importMessage)});
 
 //alert(this.importMessage+"oppppu")
@@ -151,7 +132,6 @@ console.log(this.importMessage+"oppppu")
 //    this.execute=false;
 
 // } else{
->>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
   this.show = false;
    this.testExecution=true;
    this.mo=false;
@@ -162,18 +142,6 @@ console.log(this.importMessage+"oppppu")
 
    
         }
-<<<<<<< HEAD
-//         importData(data){
-// //console.log(data)
-//           this.importMessage=data
-//            this.show = false;
-//    this.testExecution=true;
-//    this.mo=false;
-//    this.execute=false;
-//    this.valid=false;
-
-// }
-=======
         importData(data){
 //alert(this.valid+"ppppqq")
           this.importMessage=data
@@ -185,7 +153,6 @@ console.log(this.importMessage+"oppppu")
    this.valid=false;
 
 }
->>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
           goCreateModule(){
       this.everyTime=setInterval(() => {
       this.ngOnInit();

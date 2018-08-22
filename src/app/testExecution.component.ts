@@ -46,11 +46,11 @@ export class TestExecutionComponent implements OnInit  {
        a:any; 
        $http: any;
       c:Object={};
-<<<<<<< HEAD
+// <<<<<<< HEAD
   projectSelection: any;
   
-=======
->>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
+// =======
+// >>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
 
 
   constructor( private data: TestExecutionServiceComponent , private http:Http) {
@@ -113,11 +113,11 @@ export class TestExecutionComponent implements OnInit  {
      console.log(this.scriptData) 
   }
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
  run(moduleName,featureName,lineNum,projectSelection) 
-=======
- run(moduleId,featureId,lineNum,projectId) 
->>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
+// =======
+//  run(moduleId,featureId,lineNum,projectId) 
+// >>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
  { 
       alert("Run");
 
