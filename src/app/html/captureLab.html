@@ -1,46 +1,125 @@
-<body style="margin-left:13px;background-color: cyan;height: 350px;font-size: 20px;">
-	<div style="text-align:center;background-color:cyan;width:1000px;margin-left:120px;margin-top:30px;padding:10px;">
-	<span style="font-size:25px;">Mobile Lab</span>
-</div>
+<style>
+	body{
+	margin-left:13px;
+	background-color: cyan;
+	height: 350px;
+	font-size: 20px;
+	margin-top: 20px;
 
-<div style="border:solid;text-align:center;margin-left:120px;margin-top:20px;width:1012px;height:500px;font-size:25px;">
-	<div style="margin-top:5px;"><span style="color:blue;">Available Devices</span></div>
-
-	<div style="border:solid;height:360px;margin-left:5px;margin-right:5px">
-		<table style="width:986px;height:360px;text-align:center;">
-			<tr style="background-color:lightgrey;height:40px;text-align: center;">
-				<th style="text-align: center;">Check</th>
-			    <th style="text-align: center;">DevicesName</th>
-			    <th style="text-align: center;">DevicesId</th>
-			    <th></th>
-		    </tr>
-		    <tr>
-		    	<td><input type="checkbox"></td>
-		    	<td>Samsung</td>
-		    	<td>1</td>	
-		    	<th><button style="background-color:green">view</button></th>	    	
-		    </tr>
-		    <tr>
-		    	<td><input type="checkbox"></td>
-		    	<td>Nokia</td>
-		    	<td>2</td>
-		    	<th><button style="background-color:green">view</button></th>
-		    </tr>
-			<tr>
-				<td><input type="checkbox"></td>
-		    	<td>Iphone</td>
-		    	<td>3</td>
-		    	<th><button style="background-color:green">view</button></th>
-			</tr>
-			<tr>
-				<td><input type="checkbox"></td>
-		    	<td>Sony</td>
-		    	<td>4</td>
-		    	<th><button style="background-color:green">view</button></th>
-			</tr>
-		</table>		
+	}
+	#div3{
+	border: 2px solid black;
+	height: auto;
+	background-color: white;
+	margin:05px;
+	margin-top: 20px;
+	}
+	#thead{
+	background-color: gainsboro;
+	}
+	thead, tbody, tr, td, th { display: block; }
+	  tr:after {
+		  content: ' ';
+		  display: block;
+		  clear: both;
+	  }
+	  thead th {
+			width: 8%;
+			float: left;
+	  }
+	  tbody {
+		  height: 150px;
+		  overflow-y: auto;
+		  overflow-x: auto;
+	      }
+	  tbody td {
+		  width: 10%;
+		  float: left;
+	  }
+	  .main{
+		border:solid;
+		text-align:center;
+		margin-top:120px;
+		height:500px;
+		font-size:25px;
+	  }
+	  .table tr.selected td {
+		background-color:#123456 !important;
+		color: white;
+      }
+	  /* .selected {
+      background-color: blue;
+      } */
+		</style>
+	
+	
+	
+	<body>
+	<div class="container main">
+			<div class="container" *ngIf="dvc!=true">
+				<div class="col-md-12 col-sm-12 col-xs-12 well">
+				<h1>Welcome to Mobile Labs</h1>
+					<div>
+						<p>
+							Connect Mobile Device through Usb Cabel
+						</p>
+						<p>
+							Click on Connect
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- container -->
+			<!-- welcome 	 -->
+		    <div  class="container" id="div3" *ngIf="dvc==true">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div  class="jumbotron" style="margin-top:5px;"><span style="color:blue;font-weight: bolder">Available Devices</span></div>	
+					<table class="table" style="background-color: white">
+						<thead id="thead">
+							<tr>
+							<th style="width: 30px">Check</th>
+							<th style="width: 300px;text-align: center">Devices Name</th> 
+							<th style="width: 250px;text-align: center">Devices Id</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- <tr *ngFor="let data of result"> -->
+							<tr *ngFor="let data of result; let i = index" [class.selected]="data.DevicesId == selectedRownew">
+							<td style="width: 30px">
+							<!-- <input type="file"  (change)="filesPicked($event)" > -->
+							<input type="checkbox" (click)="setClickedRow(data.DevicesId);checkFun(data.DevicesId)">
+							</td>
+							<td style="width: 300px;text-align: center">{{data.DevicesName}}</td>
+							<td style="width: 250px;">{{data.DevicesId}}</td>	
+							</tr>
+						</tbody>
+				    </table>
+			   </div>
+			</div>
+			<!-- class="container" id="div3" *ngIf="dvc==true" -->
+		<button type="button" class="btn btn-success" style=" font-size: 20px; width:120px;height:35px;margin-top:15px;
+		margin-right:730px" (click)="connect()" *ngIf="dvc!=true">Connect</button>
+		<div class="pull-left row" *ngIf="dvc==true">
+			<div class="col-md-6 col-sm-6 col-xs-6 pull-left">
+			<!-- <input type="file"  (change)="filesPicked($event)" name="file" id="files" class="custom-file-input"  webkitdirectory mozdirectory msdirectory odirectory directory multiple="multiple"><button><label for="files" class="custom-file-label">Import Project
+				</label>  </button> -->
+			<!-- <input type="file"  (change)="filesPicked($event)"  webkitdirectory> -->
+			<input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
+            <button type="button" (click)="upload()">Upload</button>
+			<!-- <input type="file" accept=".apk" (change)="filesPicked($event)">					 -->
+			<!-- <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
+          <button type="button" (click)="upload()">Upload</button> -->
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 pull-left" *ngIf="dvc==true">
+				<!-- <button type="button" (click)="submit($event)">Upload</button> -->
+				<!-- <p>{{up.progress}}</p> -->
+				<button type="button" class="btn btn-primary" style="font-size: 20px;width:80px;height:35px;margin-top:15px;
+				margin-right:730px"  (click)="installApk()" *ngIf="dvc==true">Install</button>
+			</div>
+		
+		</div>
+		<!-- class="pull-left row" *ngIf="dvc==true" -->
 	</div>
-
-	<button style="background-color:blue;width:80px;height:35px;margin-top:15px;margin-right:730px">Install</button>
-</div>
-</body>
+	<!-- container main -->
+	</body>
+	

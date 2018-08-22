@@ -1,7 +1,7 @@
 module.exports = function (app) {
   console.log("wwwwwwwwwwwwwwwww");
 var mongojs=require('mongojs');
-  var db=mongojs('collections',['asd'])
+var db=mongojs('Platform',['loginDetails','projectSelection','mobileApps'])
   // var db=mongojs('collections',['asd'])
   const multer=require('multer')
 const GridFsStorage=require('multer-gridfs-storage')

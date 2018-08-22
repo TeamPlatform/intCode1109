@@ -3,7 +3,7 @@ module.exports=function(app){
 console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
 var mongojs=require('mongojs');
 
-var db=mongojs('collections',['asd']);
+var db=mongojs('Platform',['loginDetails','projectSelection','mobileApps'])
 
 app.get('/selectionProject',function(req,res){
       
@@ -79,34 +79,34 @@ Filehound.create()
    stream.write("}\n")
    stream.end();
    console.log("Replaced");
- //  execTestRunner( projectNamePath)
+  execTestRunner( projectNamePath)
    
  });
   });    
     })
-    var execTest = function(projectNamePath){
-        console.log("execTestttttttttttttttttttttttttttttttttttttttttttttt");
-        console.log("./uploads/"+projectNamePath);
-        var fs = require('fs');
-       var data = fs.readFile("./uploads/"+projectNamePath).toString().split("\n");
-       data.splice(lineNumber, 23);
-       var text = data.join("\n");
+    // var execTest = function(projectNamePath){
+    //     console.log("execTestttttttttttttttttttttttttttttttttttttttttttttt");
+    //     console.log("./uploads/"+projectNamePath);
+    //     var fs = require('fs');
+    //    var data = fs.readFile("./uploads/"+projectNamePath).toString().split("\n");
+    //    data.splice(lineNumber, 23);
+    //    var text = data.join("\n");
        
-       fs.writeFile("./uploads/"+projectNamePath, text, function (err) {
-         if (err) return console.log(err);
-         console.log("Replaced");
-       });
-    }
-    execTest("projectjava/Sample1/src/test/java/com/zephyr/testrunner/TestRunnerNew.java");
+    //    fs.writeFile("./uploads/"+projectNamePath, text, function (err) {
+    //      if (err) return console.log(err);
+    //      console.log("Replaced");
+    //    });
+    // }
+    // execTest("projectjava/Sample1/src/test/java/com/zephyr/testrunner/TestRunnerNew.java");
 
-    var execTest1 = function(projectNamePath){
-        console.log("execTesttt1");
-        var fs = require('fs');
-        var testPath = "./uploads/"+projectNamePath; 
-        console.log(testPath);
-       var data = fs.readFile(testPath,function(err,data){
-       console.log(data);
-       })
+    // var execTest1 = function(projectNamePath){
+    //     console.log("execTesttt1");
+    //     var fs = require('fs');
+    //     var testPath = "./uploads/"+projectNamePath; 
+    //     console.log(testPath);
+    //    var data = fs.readFile(testPath,function(err,data){
+    //    console.log(data);
+    //    })
     //    .toString().split("\n");
     //    data.splice(lineNumber, 23);
     //    var text = data.join("\n");
@@ -180,4 +180,4 @@ var finalExecution = function(){
 
 
 
-}//module exports
+//module exports
