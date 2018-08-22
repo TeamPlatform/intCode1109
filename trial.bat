@@ -1,2 +1,2 @@
 @echo off
-cd .\uploads\projectjava\Sample1 && mvn clean install
+cd .\uploads\anyname\Sample1 && mvn clean install

@@ -1,6 +1,10 @@
 import { Component, OnInit} from '@angular/core';
 import { Http,Response } from '@angular/http';
-//import {ProjectSelectionServiceComponent} from './projectSelection.service';
+//import {ProjectSeServiceComponent} from './projectSelection.service';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { URLSearchParams } from '@angular/http';
 
 import { TestExecutionServiceComponent  } from './testExecution.service';
 import {Post} from './post';
@@ -17,16 +21,19 @@ export class TestExecutionComponent implements OnInit  {
       //  modules : Module [] = [
       //    { moduleName : "Features" , moduleId : 1 }
       //  ]
+      runn = [];
      
        moduleNames = [] ;
        featureNames = [];
        typeArray = [];
        datas = [] ;
+       shivu= [];
        priorityArray = [];
-       testScriptsData = [];
+       testScriptsData:Post[];
       // testScript = [];
        demoArrayaData: String = "";
        moduleId:string;
+       moduleName: string;
        featureId:string;
        featureName:string;
        lineNum:string;
@@ -38,7 +45,12 @@ export class TestExecutionComponent implements OnInit  {
       
        a:any; 
        $http: any;
-
+      c:Object={};
+<<<<<<< HEAD
+  projectSelection: any;
+  
+=======
+>>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
 
 
   constructor( private data: TestExecutionServiceComponent , private http:Http) {
@@ -49,7 +61,7 @@ export class TestExecutionComponent implements OnInit  {
     this.data.childModuleDetails1().subscribe(Data => this.featureNames = Data ) ;
     this.data.typeDetails().subscribe(Data => this.typeArray = Data) ;
     this.data.priorityDetails().subscribe(Data => this.priorityArray = Data) ;
-    this.data.testScriptDetails().subscribe(Data => this.testScriptsData = Data)
+    // this.data.testScriptDetails().subscribe(result => this.testScriptsData=result);
     // this.data.showDetails().subscribe(Data => this.testScript = Data)
      this.data.getProjectSelectionDetails().subscribe(Data =>this.datas=Data);
 
@@ -57,50 +69,78 @@ export class TestExecutionComponent implements OnInit  {
     this.demoArrayaData = this.moduleNames[1];
 
   }
-
- search(moduleId,featureName) {
-   if(moduleId==undefined || featureName==undefined){
+  lineNu:any
+  
+ search(projectId,moduleId,featureId) 
+ {
+   if(projectId==undefined || moduleId==undefined || featureId==undefined)
+   {
      alert("Please select Module and Feature")
 
    }
-   else{
+   else
+   {
    this.srch=true;
-  //alert(moduleId+","+featureName) ;
-  let c =moduleId+','+featureName ;
-  this.http.get('/getTestScriptDetails'+c,{})
-  .subscribe(result =>{console.log(result)}); 
-   }
-
+   alert(projectId+","+moduleId+","+featureId) ;
+   
+   this.lineNu =projectId+','+moduleId+','+featureId ;
+   this.data.testScriptDetails(this.lineNu).subscribe(result => this.testScriptsData=result);
+  
+    }
  }
 
- vicky:any
- row(test) {
-   //alert("Row")   
-   //alert(test.lineNum);
-//   // alert(var2_featureName.featureName);
-//   // alert(var2_featureName.featureName+','+test.lineNum) ;
-//   // // alert(test.lineNum) ;
-//   // console.log(var2_featureName.featureName+','+test.lineNum);
-     this.vicky=test.lineNum;
-//   this.vicky=test.lineNum;
-//  // console.log(test.lineNum);
+ scriptData=[];
+ lineNumb:any;
+ row(index,test) 
+ {
+  //  alert("Row")  
+      alert(index);
+  //  alert(test.lineNum);
+   
+   this.moduleName=test.moduleName;
+   this.featureName=test.featureName;
+   this.lineNum=test.lineNum;
+   this.projectSelection=test.projectSelection;
+
+   var obj:Object={};
+   obj["moduleName"]=this.moduleName;
+   obj["featureName"]=this.featureName;
+   obj["lineNum"]=this.lineNum;
+   obj["projectSelection"]=this.projectSelection;
+   
+   this.scriptData.push(obj);
+          
+     console.log(this.scriptData) 
   }
 
- run(featureName,projectId) { 
-  // alert("Run");
-  // alert(featureName)
-  // alert(projectId);
-  // alert(this.vicky);
-  var lineNum = this.vicky;
-  console.log(featureName+','+lineNum);  
-  
-  var c = lineNum+','+featureName+','+projectId;
- 
-  this.http.post('/testScript'+c,{})
-  .subscribe(result =>{console.log(result)});
-  // alert(c);
-  // console.log(c);
- }
+<<<<<<< HEAD
+ run(moduleName,featureName,lineNum,projectSelection) 
+=======
+ run(moduleId,featureId,lineNum,projectId) 
+>>>>>>> e17a14d6ad4ecb2ce9bfd1072c75331d018c73d6
+ { 
+      alert("Run");
+
+      // this.runn.push(
+      // {
+      //  "moduleId":moduleId,
+      //  "featureId":featureId,
+      //  "lineNum":this.lineNumb,
+      //  "projectname":projectId,  
+      //  })
+      
+      //   console.log(this.runn);  
+    
+        var lineNumm = this.lineNum;
+        console.log(moduleName+','+featureName+','+lineNumm+','+projectSelection);  
+     
+    
+       
+      return  this.http.post('/testScript',this.scriptData)
+       .subscribe(result =>{console.log(result)});
+    
+  }
+
 }
   
     

@@ -24,20 +24,32 @@ export class TestExecutionServiceComponent {
   }
 
  
-   testScriptDetails():Observable<Post[]>{
+   testScriptDetails(ss):Observable<Post[]>{
   //alert("ll00")
-   return this.http.get("/getTestScriptDetails")
+   return this.http.get("/getTestScriptDetails"+ss)
    
   .map((response:Response)=><Post[]>response.json());
   
 
   } 
+
+
+
+   
+  rahulDetails(rah):Observable<Post[]>{
+    //alert("ll00")
+     return this.http.get("/rahuldetails"+rah)
+     
+    .map((response:Response)=><Post[]>response.json());
+    
   
-      // showDetails(): Observable<Post[]>{
-      //      alert("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv")
-      //      return this.http.get("/testScript")
-      //     .map((response: Response) => <Post[]>response.json());
-      // }
+    }
+  
+      showDetails(vv): Observable<Post[]>{
+           alert("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"+vv)
+           return this.http.get("/testScript")
+          .map((response: Response) => <Post[]>response.json());
+      }
 
   projectDetails(): Observable<Post[]>{
     // alert("ll00")

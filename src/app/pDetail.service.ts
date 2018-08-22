@@ -22,6 +22,13 @@ export class ProjectDetailServiceComponent {
   .map((response: Response) => <Post[]>response.json());
 
   }
+     moId(clickModule):Observable<Post[]>{
+   //alert("ll00")
+   return this.http.get("/getMoId"+clickModule)
+  .map((response:Response)=><Post[]>response.json());
+
+  }
+
 
     childModuleDetails(index): Observable<Post[]> {
 
@@ -34,6 +41,17 @@ export class ProjectDetailServiceComponent {
    //console.log(response.json())
 
   }
+
+
+     createFolder(folderName): Observable<Post[]>{
+ //alert(folderName)
+   return this.http.get("/createFolder"+folderName)
+  .map((response: Response) => <Post[]>response.json());
+
+  }
+
+ 
+
 
   childModuleDetails1(): Observable<Post[]> {
 
