@@ -22,7 +22,13 @@ export class ProjectDetailServiceComponent {
   .map((response: Response) => <Post[]>response.json());
 
   }
-<<<<<<< HEAD
+     moId(clickModule):Observable<Post[]>{
+   //alert("ll00")
+   return this.http.get("/getMoId"+clickModule)
+  .map((response:Response)=><Post[]>response.json());
+
+  }
+
 
     childModuleDetails(index): Observable<Post[]> {
 
@@ -36,7 +42,7 @@ export class ProjectDetailServiceComponent {
 
   }
 
-=======
+
      createFolder(folderName): Observable<Post[]>{
  //alert(folderName)
    return this.http.get("/createFolder"+folderName)
@@ -44,19 +50,9 @@ export class ProjectDetailServiceComponent {
 
   }
 
-    childModuleDetails(index): Observable<Post[]> {
+ 
 
-// alert(typeof(index)+index)
-//     let params = new URLSearchParams();
-// params.set('selectedModule', 'selectedModule');
 
-   return this.http.get('/getFeatureName' + index)
-   .map((response: Response) => <Post[]>response.json());
-   //console.log(response.json())
-
-  }
-
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
   childModuleDetails1(): Observable<Post[]> {
 
     // alert(typeof(index)+index)
