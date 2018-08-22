@@ -30,23 +30,19 @@ export class SelectionComponent implements OnInit, OnChanges {
    projectSelectionData=[];
    currentFile:any;
  projectName:string;
-<<<<<<< HEAD
- Folder:any
-=======
  Folder:any;
  sucess:any;
  message:any;
  pomFile:any;
  testFile:any;
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
    constructor(private ata:ProjectSelectionServiceComponent,private router: Router,private http:Http){
-	this.theFiles= [];
+  this.theFiles= [];
 
    }
 
 
       ngOnInit(){
-  	
+    
 //console.log("iiiiiiiiiiiiiiiii")
           this.ata.getProjectSelectionDetails()
           .subscribe(llData => {this.datas=llData, console.log(this.datas)});
@@ -80,10 +76,7 @@ export class SelectionComponent implements OnInit, OnChanges {
  var files = e.target.files;
      var path = files[0].webkitRelativePath;
     var Folder = path.split("/");
-<<<<<<< HEAD
-=======
     console
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
     this.projectName=Folder[0]
     //alert(Folder[0]);
    //this.createDbs(projectName)
@@ -94,10 +87,6 @@ export class SelectionComponent implements OnInit, OnChanges {
 
     this.relativePath = this.theFiles[i].webkitRelativePath;
     this.currentFile = this.theFiles[i];
-<<<<<<< HEAD
-
-   // console.log(this.relativePath)
-=======
    console.log(this.relativePath)
   // console.log(this.currentFile )
     var checkPom=this.relativePath.split("/").pop();
@@ -108,7 +97,6 @@ export class SelectionComponent implements OnInit, OnChanges {
     if (checkPom=="TestRunnerNew.java" ){
    this.testFile="present"
     }
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
     //this.upload(this.relativePath,this.theFiles[i] )
    // console.log(this.relativePath)
   //var str = "public/inline.js";
@@ -147,19 +135,6 @@ if( this.testFile!="TestRunnerNew.java"){
    
 }
 createDbs(){
-<<<<<<< HEAD
-console.log( this.projectName+"pppppppppp")
-  let urlSearchParams = new URLSearchParams();
-urlSearchParams.append('projectName', this.projectName);
-
-
-    return this.http.post('/selectedProjectName', urlSearchParams)
-      .subscribe(data => {
-      console.log(data);
-    });
-
-
-=======
 //console.log( this.projectName+"pppppppppp")
   let urlSearchParams = new URLSearchParams();
 urlSearchParams.append('projectName', this.projectName);
@@ -171,7 +146,6 @@ urlSearchParams.append('projectName', this.projectName);
     });
 
 
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
 
 
 }
@@ -193,11 +167,7 @@ urlSearchParams.append('projectName', this.projectName);
 //             console.error("error");
 //         });
 //     }
-<<<<<<< HEAD
-        makeFileRequest(url: string, params: Array<string>, files: Array<File>,i:number,totalLength :number) {
-=======
  makeFileRequest(url: string, params: Array<string>, files: Array<File>,i:number,totalLength :number) {
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
             //console.log(' i '+i);
             // console.log("url  "+url)
             // console.log("urlparams  "+params)

@@ -1,16 +1,11 @@
 import { Component, OnInit} from '@angular/core';
 import { Http,Response } from '@angular/http';
-<<<<<<< HEAD
 //import {ProjectSeServiceComponent} from './projectSelection.service';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { URLSearchParams } from '@angular/http';
 
-=======
-//import {ProjectSelectionServiceComponent} from './projectSelection.service';
-
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
 import { TestExecutionServiceComponent  } from './testExecution.service';
 import {Post} from './post';
 @Component({
@@ -26,26 +21,19 @@ export class TestExecutionComponent implements OnInit  {
       //  modules : Module [] = [
       //    { moduleName : "Features" , moduleId : 1 }
       //  ]
-<<<<<<< HEAD
       runn = [];
-=======
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
      
        moduleNames = [] ;
        featureNames = [];
        typeArray = [];
        datas = [] ;
-<<<<<<< HEAD
        shivu= [];
        priorityArray = [];
        testScriptsData:Post[];
-=======
-       priorityArray = [];
-       testScriptsData = [];
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
       // testScript = [];
        demoArrayaData: String = "";
        moduleId:string;
+       moduleName: string;
        featureId:string;
        featureName:string;
        lineNum:string;
@@ -57,11 +45,9 @@ export class TestExecutionComponent implements OnInit  {
       
        a:any; 
        $http: any;
-<<<<<<< HEAD
       c:Object={};
-=======
-
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
+  projectSelection: any;
+  
 
 
   constructor( private data: TestExecutionServiceComponent , private http:Http) {
@@ -72,11 +58,7 @@ export class TestExecutionComponent implements OnInit  {
     this.data.childModuleDetails1().subscribe(Data => this.featureNames = Data ) ;
     this.data.typeDetails().subscribe(Data => this.typeArray = Data) ;
     this.data.priorityDetails().subscribe(Data => this.priorityArray = Data) ;
-<<<<<<< HEAD
     // this.data.testScriptDetails().subscribe(result => this.testScriptsData=result);
-=======
-    this.data.testScriptDetails().subscribe(Data => this.testScriptsData = Data)
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
     // this.data.showDetails().subscribe(Data => this.testScript = Data)
      this.data.getProjectSelectionDetails().subscribe(Data =>this.datas=Data);
 
@@ -111,21 +93,24 @@ export class TestExecutionComponent implements OnInit  {
   //  alert("Row")  
       alert(index);
   //  alert(test.lineNum);
-  
-   this.lineNumb=test.lineNum;
+   
+   this.moduleName=test.moduleName;
+   this.featureName=test.featureName;
+   this.lineNum=test.lineNum;
+   this.projectSelection=test.projectSelection;
+
    var obj:Object={};
-   obj["moduleId"]=this.moduleId;
-   obj["featureId"]=this.featureId;
-   obj["lineNum"]=this.lineNumb;
-   obj["projectId"]=this.projectId;
+   obj["moduleName"]=this.moduleName;
+   obj["featureName"]=this.featureName;
+   obj["lineNum"]=this.lineNum;
+   obj["projectSelection"]=this.projectSelection;
    
    this.scriptData.push(obj);
           
      console.log(this.scriptData) 
   }
 
-<<<<<<< HEAD
- run(moduleId,featureId,lineNum,projectId) 
+ run(moduleName,featureName,lineNum,projectSelection) 
  { 
       alert("Run");
 
@@ -139,8 +124,8 @@ export class TestExecutionComponent implements OnInit  {
       
       //   console.log(this.runn);  
     
-        var lineNum = this.lineNumb;
-        console.log(moduleId+','+featureId+','+lineNum+','+projectId);  
+        var lineNumm = this.lineNum;
+        console.log(moduleName+','+featureName+','+lineNumm+','+projectSelection);  
      
     
        
@@ -149,51 +134,6 @@ export class TestExecutionComponent implements OnInit  {
     
   }
 
-=======
- search(moduleId,featureName) {
-   if(moduleId==undefined || featureName==undefined){
-     alert("Please select Module and Feature")
-
-   }
-   else{
-   this.srch=true;
-  //alert(moduleId+","+featureName) ;
-  let c =moduleId+','+featureName ;
-  this.http.get('/getTestScriptDetails'+c,{})
-  .subscribe(result =>{console.log(result)}); 
-   }
-
- }
-
- vicky:any
- row(test) {
-   //alert("Row")   
-   //alert(test.lineNum);
-//   // alert(var2_featureName.featureName);
-//   // alert(var2_featureName.featureName+','+test.lineNum) ;
-//   // // alert(test.lineNum) ;
-//   // console.log(var2_featureName.featureName+','+test.lineNum);
-     this.vicky=test.lineNum;
-//   this.vicky=test.lineNum;
-//  // console.log(test.lineNum);
-  }
-
- run(featureName,projectId) { 
-  // alert("Run");
-  // alert(featureName)
-  // alert(projectId);
-  // alert(this.vicky);
-  var lineNum = this.vicky;
-  console.log(featureName+','+lineNum);  
-  
-  var c = lineNum+','+featureName+','+projectId;
- 
-  this.http.post('/testScript'+c,{})
-  .subscribe(result =>{console.log(result)});
-  // alert(c);
-  // console.log(c);
- }
->>>>>>> be75818dba656454965cb2bde3be25ebf1cdd8e0
 }
   
     
