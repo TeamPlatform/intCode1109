@@ -104,7 +104,7 @@
 			<!-- <input type="file"  (change)="filesPicked($event)" name="file" id="files" class="custom-file-input"  webkitdirectory mozdirectory msdirectory odirectory directory multiple="multiple"><button><label for="files" class="custom-file-label">Import Project
 				</label>  </button> -->
 			<!-- <input type="file"  (change)="filesPicked($event)"  webkitdirectory> -->
-			<input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
+			<input type="file" accept=".apk" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
             <button type="button" (click)="upload()">Upload</button>
 			<!-- <input type="file" accept=".apk" (change)="filesPicked($event)">					 -->
 			<!-- <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />

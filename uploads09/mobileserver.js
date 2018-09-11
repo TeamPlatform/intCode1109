@@ -27,32 +27,7 @@ module.exports=function(app){
       next();
   })
 
-  ////////////////////////////////
-
-  var storage = multer.diskStorage({
-
-    filename: function (req, file, cb) {
-    cb(null, file.originalname);
-    },
-    destination: function (req, file, cb) {
-    var newDestination = __dirname+'/uploads/'
-      cb(null, newDestination);
-      }
-    });
-
-  var upload = multer(
-    { 
-        dest: "uploads/",
-        limits: {
-            fieldNameSize: 100,
-            fileSize: 60000000
-        },
-        storage: storage
-        });
-
-
-///////////////////////////////////////////////
-  app.post("/shivaa", upload.any(),function(req, res) {
+  app.post("/shivaa", multer({dest: "./uploads09/"}).array("uploads[]", 12), function(req, res) {
     res.send(req.files);
 });
 
@@ -86,6 +61,7 @@ module.exports=function(app){
 
       app.post('/postDevicesName',function(req,res)
         {
+            // console.log("yashwanth")
             listDevices();
         })
     
@@ -118,7 +94,7 @@ module.exports=function(app){
       function insert(devicesid,devicesname)
       {
         console.log("insert calll")
-        db.Devices.insert({"DevicesId":devicesid,"DevicesName":devicesname},function(error,doc){
+      db.Devices.insert({"DevicesId":devicesid,"DevicesName":devicesname},function(error,doc){
         console.log(doc)
       });
 
@@ -155,15 +131,18 @@ module.exports=function(app){
 
 
       
-      app.post('/installapk',function(req,res){
-        var devicesId = req.body.deviceId;
-        var apkpath = req.body.apkPath;
+      app.post('/installapk:devices',function(req,res){
+        console.log("call_1")
+        var newdevicesIdFound = req.params.devices;
+        console.log(newdevicesIdFound);
+        var devicesIdFound = newdevicesIdFound.split(",");
+        var devicesId = devicesIdFound[0];
+        var newapk = 'C:/Users/Opal/Desktop/areca.apk'
         console.log(devicesId+"devicesId")
-        console.log(apkpath+"newapknewapk")
-        client.install(devicesId, apkpath)
+        console.log(newapk+"newapknewapk")
+        client.install(devicesId, newapk)
         .then(function() {
-        console.log('Installed %s on all connected devices', apkpath)
-        res.json(devicesId)
+        console.log('Installed %s on all connected devices', newapk)
         })
         .catch(function(err) {
         console.error('Something went wrong:', err.stack)

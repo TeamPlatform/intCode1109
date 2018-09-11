@@ -675,12 +675,12 @@ forUpdate++
 
 
 
-app.get('/mobileAppsDetails',function(req,res){
-db.mobileApps.find({},function(err,doc){
-res.json(doc);
-console.log(doc) ;
-})
-}) 
+// app.get('/mobileAppsDetails',function(req,res){
+// db.mobileApps.find({},function(err,doc){
+// res.json(doc);
+// console.log(doc) ;
+// })
+// }) 
 
 
 
@@ -707,16 +707,16 @@ console.log(doc) ;
 })
 })
 
-app.post('/postDevicesName',function(req,res)
-{
-db.mobileApps.insert(req.body,function(err,doc)
-{
-res.json(doc);
-console.log(doc)
-});
 
+// app.post('/postDevicesName',function(req,res)
+// {
+// db.mobileApps.insert(req.body,function(err,doc)
+// {
+// res.json(doc);
+// console.log(doc)
+// });
 
-})
+// })
 
 app.get('/getTestScriptDetails:ss1',function(req,res)
 {
@@ -1274,7 +1274,7 @@ res.json(doc);
 })
 
 })
-//require('./server/serverTestExecution')(app)
+require('./server/mobileserver')(app)
 app.get('*',(req, res)=> {
 
 res.sendFile(path.join(__dirname,'dist/index.html'));

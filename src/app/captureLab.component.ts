@@ -29,8 +29,10 @@ export class CaptureLabComponent implements OnInit  {
    yashwanth:string;
    deviceDetails:Object={};
    devicesFun:Function;
+   apkUploadCall:Function;
    apkPath:Object={};
    filesToUpload: Array<File>;
+   completepath: any;
 
    
 
@@ -51,10 +53,20 @@ export class CaptureLabComponent implements OnInit  {
        upload() {
         this.makeFileRequest("/shivaa", [], this.filesToUpload).then((result) => {
             console.log(result);
+            if(result!=0)
+            {
+            console.log(result[0].path);
+            this.completepath = result[0].path;
+            console.log(this.completepath+"this.completepath");
+            console.log(result[0].filename)
+            alert(result[0].filename + " Installed in" + this.completepath);
+
+            }
         }, (error) => {
             console.error(error);
         });
     }
+   
 
     fileChangeEvent(fileInput: any){
       this.filesToUpload = <Array<File>> fileInput.target.files;
@@ -82,7 +94,10 @@ export class CaptureLabComponent implements OnInit  {
     });
 }
 
+        //   this.apkUploadCall = function()
+        //  {
 
+        //  }
 
        ////////////////////////////////////////////
 
@@ -107,13 +122,13 @@ export class CaptureLabComponent implements OnInit  {
 
         setClickedRow = function(i)
         {
-          alert(i)
+          // alert(i)
           this.selectedRownew = i;
         }
         
 
         checkFunValue(index){
-          alert(index)
+          // alert(index)
           this.indexx = index;
           console.log(this.indexx)
         }
@@ -128,13 +143,17 @@ export class CaptureLabComponent implements OnInit  {
     
     checkFun(devicesId)
     {
+      // alert("inside_check");
+      // alert(this.completepath);
       this.rowSelected=true;
       var numbers = {};
       numbers["devicesid"]=devicesId;
+      // numbers["fullfilepath"]=this.completepath;
       this.detailObj.push(numbers);
       this.fulldeviceslist=this.detailObj;
-      alert(this.fulldeviceslist.length)
-      console.log(this.fulldeviceslist)      
+     // alert(this.fulldeviceslist.length);
+      console.log(this.fulldeviceslist); 
+        
       // this.installApk(devicesId)
       //   this.deviceDetails={
       //   devicesId:devicesId
@@ -210,23 +229,21 @@ export class CaptureLabComponent implements OnInit  {
           {
             if(y  < deviceslength)
           {
-            alert("inside if")
-            alert(y)
-            console.log(this.fulldeviceslist[y].devicesid)
-            var yashwanth=this.fulldeviceslist[y].devicesid;
-            this.http.post('/installapk'+yashwanth ,{})
-            .subscribe(result =>{console.log(result)});
-            console.log(yashwanth+"yashwanth");	
+            var obj77={};
+            obj77["deviceId"]=this.fulldeviceslist[y].devicesid;
+            obj77["apkPath"]=this.completepath;
+            this.http.post('/installapk',obj77,{})
+            .subscribe(result =>{
+            console.log(result)
+            // alert("Apk Installed")
+            });	
             this.devicesFun(y+1)
             }//ifclosingsfun
           }//closingsfun
-          this.devicesFun(0);
-
-        // alert("Install Call")
-        // var yashwanth=devicesId;
-       
+          this.devicesFun(0);       
 
       }
+      
       
 
    }
